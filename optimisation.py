@@ -1,11 +1,13 @@
+from pprint import pprint
 from random import choice, random, seed
 from typing import List
+from tqdm import tqdm
 
 import matplotlib.pyplot as plt
 
 from simulation import PurchaseOrder, Simulation
 
-seed(42)
+seed(20)
 
 
 class Action:
@@ -25,15 +27,15 @@ class Action:
 
 
 class Agent:
-    def __init__(self, eps: float, purchase_orders: List[PurchaseOrder]) -> None:
+    def __init__(self, purchase_orders: List[PurchaseOrder], eps: int) -> None:
         self.eps = eps
         self.actions = [Action(step, purchase_order, parameter_name)
                         for purchase_order in purchase_orders
                         for parameter_name in ("date", "amount")
-                        for step in (-1, 1)
+                        for step in (-1, +1)
                         ]
         self.chosen_action: Action = None
-        self.rewards: List[float] =[]
+        self.rewards: List[int] = []
 
     def choose_action(self) -> Action:
         if random() < self.eps:
@@ -43,7 +45,7 @@ class Agent:
 
         return self.chosen_action
 
-    def apply_reward(self, reward: float):
+    def apply_reward(self, reward: int):
         self.rewards.append(reward)
         self.chosen_action.reward = reward
 
@@ -55,17 +57,19 @@ class Agent:
         plt.show()
 
 
-if __name__ == "__main__":
-    purchase_orders = [PurchaseOrder(0, 0) for _ in range(10)]
-
-    agent = Agent(0.2, purchase_orders)
-    
-    for iteration in range(10000):
+def run_optimiser(eps = 0.2):
+    purchase_orders = [PurchaseOrder(200, 5) for _ in range(10)]
+    agent = Agent(purchase_orders, eps)
+    for _ in tqdm(range(10000)):
         agent.choose_action().apply()
         simulation = Simulation(purchase_orders)
-        reward = 1000 - simulation.calculate_mean_squared_error()
-        agent.apply_reward(reward)
+        agent.apply_reward(1000 - simulation.calculate_mean_squared_error())
+    return agent
 
-    agent.plot()
-    simulation.plot()
+if __name__ == "__main__":
+    for eps in (0, 0.1, 0.2, 0.3, 0.4, 0.5):
+        agent = run_optimiser(eps)
+        plt.plot(agent.rewards, label=eps)
 
+    plt.legend()
+    plt.show()
