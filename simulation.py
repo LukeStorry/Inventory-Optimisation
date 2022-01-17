@@ -64,6 +64,7 @@ class Simulation:
         plt.show()
 
 
-p = [PurchaseOrder(time, 5) for time in range(50, 500, 15)]
+if __name__ == "__main__":
+    p = [PurchaseOrder(1, time, 6) for time in range(50, 500, 15)]
 s = Simulation(p)
-s.plot()
+    # s.plot()
