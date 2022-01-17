@@ -1,8 +1,9 @@
 from random import choice, random, seed
-
 from typing import List
-from simulation import Simulation, PurchaseOrder
 
+import matplotlib.pyplot as plt
+
+from simulation import PurchaseOrder, Simulation
 
 seed(42)
 
@@ -15,7 +16,6 @@ class Action:
         self.reward: float = 0
 
     def apply(self):
-        print(f"Applying {self}")
         old_value = getattr(self.recipient, self.parameter_name)
         new_value = max(0, old_value + self.step)
         setattr(self.recipient, self.parameter_name, new_value)
@@ -33,32 +33,39 @@ class Agent:
                         for step in (-1, 1)
                         ]
         self.chosen_action: Action = None
+        self.rewards: List[float] =[]
 
     def choose_action(self) -> Action:
         if random() < self.eps:
-            print("Explore", end=' ')
             self.chosen_action = choice(self.actions)
         else:
-            print("Exploit", end=' ')
             self.chosen_action = max(self.actions, key=lambda a: a.reward)
 
         return self.chosen_action
 
     def apply_reward(self, reward: float):
-        print(f"Reward: {reward}")
+        self.rewards.append(reward)
         self.chosen_action.reward = reward
+
+    def plot(self):
+        plt.plot(self.rewards)
+        plt.title('Reward over time')
+        plt.xlabel('Iteration')
+        plt.ylabel('Reward')
+        plt.show()
 
 
 if __name__ == "__main__":
-    purchase_orders = [PurchaseOrder(date, 0) for date in range(10)]
-    Simulation(purchase_orders).plot()
+    purchase_orders = [PurchaseOrder(0, 0) for _ in range(10)]
+
     agent = Agent(0.2, purchase_orders)
     
-    for iteration in range(10):
-        print(iteration, end=' ')
+    for iteration in range(10000):
         agent.choose_action().apply()
         simulation = Simulation(purchase_orders)
-        agent.apply_reward(5000 - simulation.calculate_mean_squared_error())
+        reward = 1000 - simulation.calculate_mean_squared_error()
+        agent.apply_reward(reward)
 
+    agent.plot()
     simulation.plot()
 

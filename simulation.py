@@ -1,6 +1,7 @@
 from typing import List
-import simpy
+
 import matplotlib.pyplot as plt
+import simpy
 
 
 class PurchaseOrder:
