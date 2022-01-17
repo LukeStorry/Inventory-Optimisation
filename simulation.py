@@ -1,6 +1,5 @@
 from typing import List
 import simpy
-from random import random
 import matplotlib.pyplot as plt
 
 
@@ -26,7 +25,7 @@ class Item:
 
 class Simulation:
     def __init__(self, purchase_orders=List[PurchaseOrder], run_length: int = 365) -> None:
-        initial_ages = [0 for _ in range(20)]  # [0, 0, 0, 1, 1, 5, 5, 10, 10, 50, 50, 80, 80]
+        initial_ages = [0, 0, 0, 1, 1, 5, 5, 10, 10, 50, 50, 80, 80]
         self.age_limit = 100
 
         self.inventory = [Item(age) for age in initial_ages]
@@ -55,6 +54,10 @@ class Simulation:
             yield self.environment.timeout(purchase.date - self.environment.now)
             self.inventory.extend(([Item(0) for _ in range(purchase.amount)]))
 
+    def calculate_mean_squared_error(self, target=30) -> int:
+        sum_of_squared_error = sum((target - value)**2 for value in self.availabilities.values())
+        return round(sum_of_squared_error/len(self.availabilities))
+
     def plot(self):
         plt.plot(list(self.availabilities.keys()), list(self.availabilities.values()))
         plt.title('Availability over time')
@@ -65,6 +68,7 @@ class Simulation:
 
 
 if __name__ == "__main__":
-    p = [PurchaseOrder(1, time, 6) for time in range(50, 500, 15)]
-s = Simulation(p)
+    p = [PurchaseOrder(time, 6) for time in range(50, 500, 15)]
+    s = Simulation(p)
     # s.plot()
+    print(s.calculate_mean_squared_error())
