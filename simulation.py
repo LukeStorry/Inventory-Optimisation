@@ -59,8 +59,10 @@ class Simulation:
         sum_of_squared_error = sum((target - value)**2 for value in self.availabilities.values())
         return round(sum_of_squared_error/len(self.availabilities))
 
-    def plot(self):
+
+    def plot(self, target: int = 30):
         plt.plot(list(self.availabilities.keys()), list(self.availabilities.values()))
+        plt.axhline(y=target, color='r', linestyle='--')
         plt.title('Availability over time')
         plt.xlabel('Simulation Timestep')
         plt.ylabel('Items Available')
