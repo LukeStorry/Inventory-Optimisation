@@ -59,6 +59,8 @@ class Simulation:
         sum_of_squared_error = sum((target - value)**2 for value in self.availabilities.values())
         return round(sum_of_squared_error/len(self.availabilities))
 
+    def calculate_sum_under_target(self, target=30) -> int:
+        return sum((target - value) for value in self.availabilities.values() if value < target)
 
     def plot(self, target: int = 30):
         plt.plot(list(self.availabilities.keys()), list(self.availabilities.values()))
@@ -73,5 +75,6 @@ class Simulation:
 if __name__ == "__main__":
     p = [PurchaseOrder(time, 6) for time in range(50, 500, 15)]
     s = Simulation(p)
-    # s.plot()
     print(s.calculate_mean_squared_error())
+    print(s.calculate_sum_under_target())
+    s.plot()

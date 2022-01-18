@@ -63,7 +63,8 @@ def run_optimiser(eps = 0.2):
     for _ in tqdm(range(10000)):
         agent.choose_action().apply()
         simulation = Simulation(purchase_orders)
-        agent.apply_reward(1000 - simulation.calculate_mean_squared_error())
+        agent.apply_reward(1000 - simulation.calculate_mean_squared_error() - simulation.calculate_sum_under_target())
+    # simulation.plot()
     return agent
 
 if __name__ == "__main__":
