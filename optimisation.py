@@ -1,5 +1,6 @@
+from math import sqrt
 from pprint import pprint
-from random import choice, random, seed
+from random import SystemRandom
 from typing import List
 from tqdm import tqdm
 
@@ -7,26 +8,23 @@ import matplotlib.pyplot as plt
 
 from simulation import PurchaseOrder, Simulation
 
-seed(20)
+random = SystemRandom()
 
 
 class Action:
     """A Single action that our Agent can choose to apply"""
 
-    def __init__(self, step: int, recipient: PurchaseOrder, parameter_name: str) -> None:
+    def __init__(self, step: int, recipient: PurchaseOrder) -> None:
         self.step = step
         self.recipient = recipient
-        self.parameter_name = parameter_name
         self.reward: float = 0
 
     def apply(self):
         """Alter the recipient by applying a step, limiting at 0"""
-        old_value = getattr(self.recipient, self.parameter_name)
-        new_value = max(0, old_value + self.step)
-        setattr(self.recipient, self.parameter_name, new_value)
+        self.recipient.amount = max(0, self.recipient.amount + self.step)
 
     def __repr__(self) -> str:
-        return f"<Action with reward of {self.reward} of {self.parameter_name} {self.step} for {self.recipient}>"
+        return f"<Action with reward of {self.reward} for {self.recipient} {self.step}>"
 
 
 class Agent:
@@ -34,54 +32,65 @@ class Agent:
 
     def __init__(self, purchase_orders: List[PurchaseOrder], eps: int):
         self.eps = eps
-        self.actions = [Action(step, purchase_order, parameter_name)
-                        for purchase_order in purchase_orders
-                        for parameter_name in ("day", "amount")
-                        for step in (-1, +1)
-                        ]
+        self.actions = [Action(step, purchase_order) for purchase_order in purchase_orders for step in (-1, +1)]
         self.chosen_action: Action = None
         self.rewards: List[int] = []
 
     def choose_action(self) -> Action:
         """Either Explore a random action, or Exploit the action with best reward, depending on EPS"""
-        if random() < self.eps:
-            self.chosen_action = choice(self.actions)
+        if random.random() < self.eps:
+            self.chosen_action = random.choice(self.actions)
         else:
+            random.shuffle(self.actions)
             self.chosen_action = max(self.actions, key=lambda a: a.reward)
 
         return self.chosen_action
 
     def apply_reward(self, reward: int):
         """Update the latest Action with the given reward, and keep track of the reward internally"""
+        if self.rewards:
+            self.chosen_action.reward = reward - self.rewards[-1]
         self.rewards.append(reward)
-        self.chosen_action.reward = reward
 
     def plot(self):
         """Plots the Reward over timr throughout the optimisation"""
         plt.plot(self.rewards)
-        plt.title('Reward over time')
-        plt.xlabel('Iteration')
-        plt.ylabel('Reward')
+        plt.title("Reward over time")
+        plt.xlabel("Iteration")
+        plt.ylabel("Reward")
         plt.show()
 
 
-def run_optimiser(eps=0.2, iterations=5000, target=20):
+def calculate_reward(simulation: Simulation) -> int:
+    """Calculates the reward to give to the agent after a simulation"""
+    number_of_purchases = sum(po.amount for po in simulation.purchase_orders)
+    empty_penalty = sum(-100 for value in simulation.availabilities.values() if value < 3)
+    return empty_penalty - 2*number_of_purchases
+
+
+def run_optimiser(eps=0.2, iterations=4000):
     """Repeatedly use the agent to find optimum input to the simulation."""
-    purchase_orders = [PurchaseOrder(200, 5) for _ in range(10)]
+    purchase_orders = [PurchaseOrder(time, 10) for time in range(0, 365, 30)]
     agent = Agent(purchase_orders, eps)
     for _ in tqdm(range(iterations)):
         agent.choose_action().apply()
         simulation = Simulation(purchase_orders)
         simulation.run()
-        agent.apply_reward(1000 - simulation.calculate_mean_squared_error(target) - simulation.calculate_sum_under_target(target))
-    simulation.plot(target)
+        agent.apply_reward(calculate_reward(simulation))
+    pprint(purchase_orders)
+    pprint(agent.actions)
+    # simulation.plot()
     return agent
 
 
 if __name__ == "__main__":
-    for eps in [0.2]:  # (0, 0.1, 0.2, 0.3, 0.4, 0.5):
+
+    # agent = run_optimiser()
+    # agent.plot()
+
+    # Epsilon hyperparameter comparisons:
+    for eps in (0, 0.1, 0.2, 0.3, 0.4, 0.5):
         agent = run_optimiser(eps)
         plt.plot(agent.rewards, label=eps)
-
     plt.legend()
     plt.show()

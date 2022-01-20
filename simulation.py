@@ -1,3 +1,4 @@
+import random
 from typing import List
 
 import matplotlib.pyplot as plt
@@ -12,7 +13,7 @@ class PurchaseOrder:
         self.amount = amount
 
     def __repr__(self) -> str:
-        return f"<PurchaseOrder for {self.amount} at {self.day}>"
+        return f"PurchaseOrder({self.day}, {self.amount})"
 
 
 class Item:
@@ -22,42 +23,49 @@ class Item:
         self.age = age
 
     def __repr__(self) -> str:
-        return f"<Item with age of {self.age}>"
+        return f"Item({self.age})"
 
 
 class Simulation:
     """A Simulation of inventory over time"""
 
-    def __init__(self,
-                 purchase_orders=List[PurchaseOrder],
-                 initial_ages=[0, 0, 0, 1, 1, 5, 5, 10, 10, 50, 50, 80, 80],
-                 age_limit=100):
-
-        self.age_limit = age_limit
+    def __init__(self, purchase_orders: List[PurchaseOrder]):
+        self.age_limit = 90
+        initial_ages = [0, 0, 0, 1, 1, 5, 5, 10, 10, 50, 50, 80, 80]
         self.inventory = [Item(age) for age in initial_ages]
         self.availabilities: dict[int, int] = {}
         self.purchase_orders = sorted(purchase_orders, key=lambda p: p.day)
 
     def run(self, run_length: int = 365):
+        random.seed(42)
         self.environment = simpy.Environment()
         self.environment.process(self.daily_age_increment())
+        self.environment.process(self.weekly_stock_clearout())
+        self.environment.process(self.handle_sales())
         self.environment.process(self.handle_purchases())
-        self.environment.process(self.store_availabilities())
+        self.environment.process(self.monitor_availabilities())
         self.environment.run(run_length)
+        return self.availabilities
 
     def daily_age_increment(self):
         """Simpy Generator to increase the age of all Items each day"""
         while True:
             for item in self.inventory:
-                item.age += 1  # + random()
+                item.age += 1
             yield self.environment.timeout(1)
 
-    def store_availabilities(self):
-        """Simpy Generator to monitor the total availability each day"""
+    def weekly_stock_clearout(self):
+        """Simpy Generator to remove over-aged Items from inventory each week"""
         while True:
-            available = sum(1 for item in self.inventory if item.age < self.age_limit)
-            self.availabilities[self.environment.now] = available
-            yield self.environment.timeout(1)
+            self.inventory = [item for item in self.inventory if item.age < self.age_limit]
+            yield self.environment.timeout(7)
+
+    def handle_sales(self):
+        """Simpy Generator to simulate the sale of items"""
+        while True:
+            yield self.environment.timeout(random.random())
+            if self.inventory:
+                del self.inventory[0]
 
     def handle_purchases(self):
         """Simpy Generator to create Items from PurchaseOrders and add them to the inventory"""
@@ -65,30 +73,31 @@ class Simulation:
             yield self.environment.timeout(purchase.day - self.environment.now)
             self.inventory.extend(([Item(0) for _ in range(purchase.amount)]))
 
-    def calculate_mean_squared_error(self, target=30) -> int:
-        """Calculates the MSD of the availabilities compared to a target, Post-Simulation"""
-        sum_of_squared_error = sum((target - value)**2 for value in self.availabilities.values())
-        return round(sum_of_squared_error/len(self.availabilities))
+    def monitor_availabilities(self):
+        """Simpy Generator to monitor the total inventory size each day"""
+        while True:
+            self.availabilities[self.environment.now] = len(self.inventory)
+            yield self.environment.timeout(1)
 
-    def calculate_sum_under_target(self, target=30) -> int:
-        """Calculates the amount of under-stocking across all days, Post-Simulation"""
-        return sum((target - value) for value in self.availabilities.values() if value < target)
-
-    def plot(self, target: int = 30):
-        """Plots the availabilities on a line chart"""
+    def plot(self):
+        """Plots the availabilities on a line chart, with an optional requirement line"""
+        plt.title("Availability over time")
+        plt.xlabel("Simulation Timestep")
+        plt.ylabel("Items Available")
         plt.plot(list(self.availabilities.keys()), list(self.availabilities.values()))
-        plt.axhline(y=target, color='r', linestyle='--')
-        plt.title('Availability over time')
-        plt.xlabel('Simulation Timestep')
-        plt.ylabel('Items Available')
+        plt.xlim(xmin=0)
         plt.ylim(ymin=0)
         plt.show()
 
 
 if __name__ == "__main__":
-    p = [PurchaseOrder(time, 5) for time in range(10, 500, 15)]
+    p = [
+        PurchaseOrder(20, 250),
+        PurchaseOrder(100, 250),
+        PurchaseOrder(150, 250),
+        PurchaseOrder(200, 250),
+        PurchaseOrder(280, 250),
+    ]
     s = Simulation(p)
     s.run()
-    print(s.calculate_mean_squared_error())
-    print(s.calculate_sum_under_target())
     s.plot()
