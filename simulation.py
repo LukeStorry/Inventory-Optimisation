@@ -85,11 +85,12 @@ class Simulation:
 
 if __name__ == "__main__":
     p = [
-        PurchaseOrder(20, 250),
-        PurchaseOrder(100, 250),
-        PurchaseOrder(150, 250),
-        PurchaseOrder(200, 250),
-        PurchaseOrder(280, 250),
+        PurchaseOrder(0, 100),
+        PurchaseOrder(50, 100),
+        PurchaseOrder(100, 150),
+        PurchaseOrder(150, 150),
+        PurchaseOrder(200, 150),
+        PurchaseOrder(280, 150),
     ]
     s = Simulation(p)
     s.run()

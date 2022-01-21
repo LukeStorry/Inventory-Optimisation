@@ -1,14 +1,12 @@
 from dataclasses import dataclass
 from pprint import pprint
-from random import SystemRandom
+from random import choice, seed, random
 from typing import List
 
 import matplotlib.pyplot as plt
 from tqdm import tqdm
 
 from simulation import PurchaseOrder, Simulation
-
-random = SystemRandom()
 
 
 @dataclass
@@ -34,10 +32,9 @@ class Agent:
 
     def choose_action(self) -> Action:
         """Either Explore a random action, or Exploit the action with best reward, depending on EPS"""
-        if random.random() < self.eps:
-            self.chosen_action = random.choice(self.actions)
+        if random() < self.eps:
+            self.chosen_action = choice(self.actions)
         else:
-            random.shuffle(self.actions)
             self.chosen_action = max(self.actions, key=lambda a: a.reward)
 
         return self.chosen_action
@@ -59,15 +56,16 @@ class Agent:
 def calculate_reward(simulation: Simulation) -> int:
     """Calculates the reward to give to the agent after a simulation"""
     number_of_purchases = sum(po.amount for po in simulation.purchase_orders)
-    empty_penalty = sum(-100 for value in simulation.availabilities.values() if value == 0)
+    empty_penalty = sum(-4 for value in simulation.availabilities.values() if value == 0)
     return 1000 + empty_penalty - number_of_purchases
 
 
 def run_optimiser(eps=0.2, iterations=2000):
     """Repeatedly use the agent to find optimum input to the simulation."""
-    purchase_orders = [PurchaseOrder(time, 0) for time in range(0, 365, 30)]
+    purchase_orders = [PurchaseOrder(time, 20) for time in range(0, 365, 30)]
     agent = Agent(purchase_orders, eps)
-    for _ in tqdm(range(iterations)):
+    for i in tqdm(range(iterations)):
+        seed(i)
         agent.choose_action().apply()
         simulation = Simulation(purchase_orders)
         simulation.run()
@@ -80,6 +78,7 @@ def run_optimiser(eps=0.2, iterations=2000):
 
 if __name__ == "__main__":
     agent = run_optimiser()
+    print(agent.rewards[-1])
     agent.plot()
 
     # Epsilon hyperparameter comparisons:
