@@ -1,29 +1,22 @@
 import random
+from dataclasses import dataclass
 from typing import List
 
 import matplotlib.pyplot as plt
 import simpy
 
 
+@dataclass
 class PurchaseOrder:
     """An object to store Orders of an amount of Items on a certain day"""
-
-    def __init__(self, day: int, amount: int) -> None:
-        self.day = day
-        self.amount = amount
-
-    def __repr__(self) -> str:
-        return f"PurchaseOrder({self.day}, {self.amount})"
+    day: int
+    amount: int
 
 
+@dataclass
 class Item:
     """A single degradable inventory Item"""
-
-    def __init__(self, age: int) -> None:
-        self.age = age
-
-    def __repr__(self) -> str:
-        return f"Item({self.age})"
+    age: int
 
 
 class Simulation:
