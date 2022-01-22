@@ -1,0 +1,96 @@
+<!doctype html>
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+	<title>Inventory Optimisation Presentation</title>
+
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.2.1/reveal.min.css" />
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.2.1/theme/sky.min.css" />
+</head>
+
+<body>
+	<div class="reveal">
+		<div class="slides">
+			<section data-markdown data-auto-animate>
+				<script type="text/template">
+					# Inventory Optimisation
+					Luke Storry
+ 					---
+					### Outline
+					In this lunch and learn we will be talking through some of the techniques used on a recent project
+					-  a discrete-event-simulation to forecast the availability of stock inventory
+					-  python best practises 
+					-  (depending on interest) using the Epsilon-Greedy RL algorithm to find optimised purchasing strategies
+					---
+					### Prior Experience
+					🖐 if:
+					- seen python
+					- used python
+					- list comprehension
+					- classes
+					- generators
+					- simpy
+					---
+					###  Client Problem
+					- Having issues with Inventory management
+					- Would like ____knowledge____ about impact of future plans
+					- Could ____optimise____ future orders to save costs
+					---
+					### Why a Simulation?
+					- have lots of domain knowledge, and full set of rules.
+					- only have data about  (could run supervised learning)
+					---
+					<iframe width="100%" height="500px" src="https://simpy.readthedocs.io/en/latest/">
+					---
+					### Discrete Events
+					outline boxes with each discrete event
+					- age +1 per day
+					- weekly stock clearout
+					- sales - random per day
+					---
+					## Live code time!
+					---
+					## Questions?
+					---
+					### Strategy-Optimisation strategy?
+					- could do grid search all values
+					- but simulation too expensive to exhaust.
+					- random grid search not using prior knowledge
+					- can't only use prior knowledge as causes local minima
+					---
+					faster optimal solution: Epsilon Greedy
+					
+					restaurant meal
+					
+					exploit vs explore
+
+					[_Further Reading_](https://www.cs.cmu.edu/~ebrun/15889e/lectures/Lecture_slides_10_26.pdf)
+					---
+					action space of input changes rather than just grid of inputs
+					---
+					live code again
+					---
+					Q & A
+				</script>
+			</section>
+		</div>
+	</div>
+
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.2.1/reveal.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.2.1/plugin/markdown/markdown.min.js"></script>
+	<script>
+		Reveal.initialize({
+			hash: true,
+			plugins: [RevealMarkdown]
+		});
+		Reveal.addEventListener("ready", function addFragmentToLists() {
+			for (const listItem of document.querySelectorAll("li, p")) {
+				listItem.classList.add("fragment");
+			}
+		});
+	</script>
+</body>
+
+</html>
