@@ -9,6 +9,7 @@ import simpy
 @dataclass
 class PurchaseOrder:
     """An object to store Orders of an amount of Items on a certain day"""
+
     day: int
     amount: int
 
@@ -16,6 +17,7 @@ class PurchaseOrder:
 @dataclass
 class Item:
     """A single degradable inventory Item"""
+
     age: int
 
 
@@ -26,7 +28,7 @@ class Simulation:
         self.age_limit = 90
         initial_ages = [0, 0, 0, 1, 1, 5, 5, 10, 10, 50, 50, 80, 80]
         self.inventory = [Item(age) for age in initial_ages]
-        self.availabilities: dict[int, int] = {}
+        self.availabilities: List[int] = []
         self.purchase_orders = sorted(purchase_orders, key=lambda p: p.day)
 
     def run(self, run_length: int = 365):
@@ -69,7 +71,7 @@ class Simulation:
     def monitor_availabilities(self):
         """Simpy Generator to monitor the total inventory size each day"""
         while True:
-            self.availabilities[self.environment.now] = len(self.inventory)
+            self.availabilities.append(len(self.inventory))
             yield self.environment.timeout(1)
 
     def plot(self):
@@ -77,7 +79,7 @@ class Simulation:
         plt.title("Availability over time")
         plt.xlabel("Simulation Timestep")
         plt.ylabel("Items Available")
-        plt.plot(list(self.availabilities.keys()), list(self.availabilities.values()))
+        plt.plot(self.availabilities)
         plt.xlim(xmin=0)
         plt.ylim(ymin=0)
         plt.show()

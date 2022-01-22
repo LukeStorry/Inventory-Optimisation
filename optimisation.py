@@ -12,6 +12,7 @@ from simulation import PurchaseOrder, Simulation
 @dataclass
 class Action:
     """A Single action that our Agent can choose to apply"""
+
     step: int
     recipient: PurchaseOrder
     reward: int = 0
@@ -56,7 +57,7 @@ class Agent:
 def calculate_reward(simulation: Simulation) -> int:
     """Calculates the reward to give to the agent after a simulation"""
     number_of_purchases = sum(po.amount for po in simulation.purchase_orders)
-    empty_penalty = sum(-4 for value in simulation.availabilities.values() if value == 0)
+    empty_penalty = sum(-4 for value in simulation.availabilities if value == 0)
     return 1000 + empty_penalty - number_of_purchases
 
 
@@ -78,7 +79,6 @@ def run_optimiser(eps=0.2, iterations=2000):
 
 if __name__ == "__main__":
     agent = run_optimiser()
-    print(agent.rewards[-1])
     agent.plot()
 
     # Epsilon hyperparameter comparisons:
