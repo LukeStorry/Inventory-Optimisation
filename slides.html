@@ -14,7 +14,7 @@
 		}
 
 		img {
-			max-height: 500px !important;
+			max-height: 80vh !important;
 		}
 	</style>
 </head>
@@ -77,12 +77,12 @@
 					## Optimisation
 					axis per inputs
 
-					<img  alt="3d axes" src="https://www.mathworks.com/matlabcentral/mlc-downloads/downloads/6b528772-236f-46a7-ba3c-74fd81f08c39/66f8fd85-ee0a-4cb4-aaba-84b409113a99/images/screenshot.png"/>
+					<img height=350px alt="3d axes" src="https://www.mathworks.com/matlabcentral/mlc-downloads/downloads/6b528772-236f-46a7-ba3c-74fd81f08c39/66f8fd85-ee0a-4cb4-aaba-84b409113a99/images/screenshot.png"/>
 
 					_Parameter Space_
 					---
 					## Optimisation
-					<img alt="grid search" src="https://maelfabien.github.io/assets/images/expl4_1.jpg"/>
+					<img height=400px alt="grid search" src="https://maelfabien.github.io/assets/images/expl4_1.jpg"/>
 					
 					_expensive - time and cost_
 					---
@@ -90,29 +90,30 @@
 					Random Search
 					<img alt="grid vs random search" src="https://www.researchgate.net/profile/Karl-Ezra-Pilario/publication/341691661/figure/fig2/AS:896464364507139@1590745168758/Comparison-between-a-grid-search-and-b-random-search-for-hyper-parameter-tuning-The.png"/>
 					
-					<p data-id="guess"><i>not learning, just guessing</i></p>
+					_not learning, just guessing_
 					---
-					## Optimisation
+					#### Agents in Reinforcement Learning
+					<img alt="Agent-Environment diagram" src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/1b/Reinforcement_learning_diagram.svg/1024px-Reinforcement_learning_diagram.svg.png"/>
+					---
 					<img alt="graph of local minima" src="https://vitalflux.com/wp-content/uploads/2020/09/local-minima-vs-global-minima-1.png"/>
-					<p data-id="guess"><i>just learning, no guessing<i></p>
 					---
 					<img alt="Restaurant menu" src="https://previews.123rf.com/images/marchie/marchie1611/marchie161100055/65931451-men%C3%BA-italiano-mantel-folleto-restaurante-de-comida-dise%C3%B1o-de-la-plantilla-vintage-volante-de-pizza-c.jpg">
-					
 					---
-					### Epsilon Greedy
-
+					## Epsilon Greedy
 					exploit vs explore
 					
 					<img alt="epsilon greedy probabliilty algorithm" src="https://media.geeksforgeeks.org/wp-content/uploads/20200318200401/Screenshot-2020-03-18-at-8.03.38-PM.png"/>
-
-					[_Further Reading_](https://www.cs.cmu.edu/~ebrun/15889e/lectures/Lecture_slides_10_26.pdf)
+					
+					<!-- [_Further Reading_](https://www.cs.cmu.edu/~ebrun/15889e/lectures/Lecture_slides_10_26.pdf) -->
 					---
-					### Action Space
+					## Actions
+					Input-alterations navigating through Parameter Space 
 					<img alt="vector cloud to represent actions-space" src="https://dev.pyvista.org/_images/sphx_glr_create-point-cloud_003.png"/>
 					---
-					#### Agents in Reinforcement Learning
-					
-					<img alt="Agent-Environment diagram" src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/1b/Reinforcement_learning_diagram.svg/1024px-Reinforcement_learning_diagram.svg.png"/>
+					## Reward
+					_Domain-Specific_
+					- Mean Square Difference from target
+					- Cost of purchases minus penalty for out-of-stock
 					---
 					### Code
 					---
