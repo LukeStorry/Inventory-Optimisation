@@ -4,7 +4,7 @@
 
 Using [simpy](https://simpy.readthedocs.io/en/latest/) for discrete event simulation, [matplotlib](https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.html) for graphs, the [epsilon-greedy algorithm](https://en.wikipedia.org/wiki/Multi-armed_bandit#:~:text=Epsilon%2Dgreedy,-strategy) for input optimisation, and the [reveal-js](https://revealjs.com/) framework for the presentation.
 
-__ Slides viewable [here](https://lukestorry.github.io/Inventory-Optimisation/slides.html) __
+__Slides viewable [here](https://lukestorry.github.io/Inventory-Optimisation/slides.html)__
 
 ---
 ## Setup & running
