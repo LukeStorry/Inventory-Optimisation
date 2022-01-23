@@ -8,6 +8,15 @@
 
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.2.1/reveal.min.css" />
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.2.1/theme/sky.min.css" />
+	<style>
+		pre {
+			width: fit-content !important;
+		}
+
+		img {
+			max-height: 500px !important;
+		}
+	</style>
 </head>
 
 <body>
@@ -40,41 +49,76 @@
 					---
 					### Why a Simulation?
 					- have lots of domain knowledge, and full set of rules.
-					- only have data about  (could run supervised learning)
+					- only have data about system, not outputs (could run supervised learning)
 					---
 					<iframe width="100%" height="500px" src="https://simpy.readthedocs.io/en/latest/">
 					---
 					### Discrete Events
-					outline boxes with each discrete event
-					- age +1 per day
-					- weekly stock clearout
-					- sales - random per day
+					```
+					Increase each item's age every day
+					```
+					```
+					Weekly stock clearout
+					```
+					```
+					Random number of Sales per day
+					```
+					```
+					New Purchase Orders
+					```
+					```
+					Monitor
+					```
 					---
 					## Live code time!
 					---
 					## Questions?
 					---
-					### Strategy-Optimisation strategy?
-					- could do grid search all values
-					- but simulation too expensive to exhaust.
-					- random grid search not using prior knowledge
-					- can't only use prior knowledge as causes local minima
+					## Optimisation
+					axis per inputs
+
+					<img  alt="3d axes" src="https://www.mathworks.com/matlabcentral/mlc-downloads/downloads/6b528772-236f-46a7-ba3c-74fd81f08c39/66f8fd85-ee0a-4cb4-aaba-84b409113a99/images/screenshot.png"/>
+
+					_Parameter Space_
 					---
-					faster optimal solution: Epsilon Greedy
+					## Optimisation
+					<img alt="grid search" src="https://maelfabien.github.io/assets/images/expl4_1.jpg"/>
 					
-					restaurant meal
+					_expensive - time and cost_
+					---
+					## Optimisation
+					Random Search
+					<img alt="grid vs random search" src="https://www.researchgate.net/profile/Karl-Ezra-Pilario/publication/341691661/figure/fig2/AS:896464364507139@1590745168758/Comparison-between-a-grid-search-and-b-random-search-for-hyper-parameter-tuning-The.png"/>
 					
+					<p data-id="guess"><i>not learning, just guessing</i></p>
+					---
+					## Optimisation
+					<img alt="graph of local minima" src="https://vitalflux.com/wp-content/uploads/2020/09/local-minima-vs-global-minima-1.png"/>
+					<p data-id="guess"><i>just learning, no guessing<i></p>
+					---
+					<img alt="Restaurant menu" src="https://previews.123rf.com/images/marchie/marchie1611/marchie161100055/65931451-men%C3%BA-italiano-mantel-folleto-restaurante-de-comida-dise%C3%B1o-de-la-plantilla-vintage-volante-de-pizza-c.jpg">
+					
+					---
+					### Epsilon Greedy
+
 					exploit vs explore
+					
+					<img alt="epsilon greedy probabliilty algorithm" src="https://media.geeksforgeeks.org/wp-content/uploads/20200318200401/Screenshot-2020-03-18-at-8.03.38-PM.png"/>
 
 					[_Further Reading_](https://www.cs.cmu.edu/~ebrun/15889e/lectures/Lecture_slides_10_26.pdf)
 					---
-					action space of input changes rather than just grid of inputs
+					### Action Space
+					<img alt="vector cloud to represent actions-space" src="https://dev.pyvista.org/_images/sphx_glr_create-point-cloud_003.png"/>
 					---
-					live code again
+					#### Agents in Reinforcement Learning
+					
+					<img alt="Agent-Environment diagram" src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/1b/Reinforcement_learning_diagram.svg/1024px-Reinforcement_learning_diagram.svg.png"/>
 					---
-					Q & A
+					### Code
 					---
-					lkst.uk/simpy
+					### Q & A
+					---
+					### lkst.uk/simpy
 				</script>
 			</section>
 		</div>
@@ -88,7 +132,7 @@
 			plugins: [RevealMarkdown]
 		});
 		Reveal.addEventListener("ready", function addFragmentToLists() {
-			for (const listItem of document.querySelectorAll("li, p")) {
+			for (const listItem of document.querySelectorAll("li, p, pre, img")) {
 				listItem.classList.add("fragment");
 			}
 		});
