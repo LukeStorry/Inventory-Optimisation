@@ -7,6 +7,22 @@ Using [simpy](https://simpy.readthedocs.io/en/latest/) for discrete event simula
 __Slides viewable [here](https://lukestorry.github.io/Inventory-Optimisation/slides.html)__
 
 ---
+## Overview
+![Discrete Events Diagram](assets/simulation.svg)
+---
+## Output
+#### With only the Purchasing event
+![availability diagram - only purchasing (goes up)](assets/availability_1_only_purchasing.png)
+#### After adding aged stock clearout
+![availability diagram - with stock clearout (goes up and down blockily)](assets/availability_2_with_stock_clearout.png)
+#### After adding sales
+![availability diagram - with clearout and sales (blocks are smoothed off by sales - realistic diagram)](assets/availability_3_with_clearout_and_sales.png)
+#### Result of greedy-epsilon optimisation
+![availability diagram - optimised (minimal spending, no out-of-stock)](assets/availability_optimised.png)
+#### Comparison of different Epsilon values (reward per iteration)
+![epsilon comparison](assets/epsilon_comparison.png)
+
+---
 ## Setup & running
 Install required packages: `pip install -r .\requirements.txt`
 

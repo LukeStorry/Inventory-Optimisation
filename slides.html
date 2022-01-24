@@ -5,18 +5,8 @@
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 	<title>Inventory Optimisation Presentation</title>
-
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.2.1/reveal.min.css" />
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.2.1/theme/sky.min.css" />
-	<style>
-		pre {
-			width: fit-content !important;
-		}
-
-		img {
-			max-height: 80vh !important;
-		}
-	</style>
 </head>
 
 <body>
@@ -52,37 +42,304 @@
 					- only have data about system, not outputs (could run supervised learning)
 					---
 					<iframe width="100%" height="500px" src="https://simpy.readthedocs.io/en/latest/">
-					---
-					### Discrete Event Simulation
-					<svg version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1023.7999267578125 604.5188306274414" width="1023.7999267578125" height="604.5188306274414">
-						<!-- svg-source:excalidraw --></rect><g stroke-linecap="round" transform="translate(10 300.56668186187744) rotate(0 106 41.99999237060547)"><path d="M0 0 C71.12 0, 142.23 0, 212 0 M0 0 C42.43 0, 84.86 0, 212 0 M212 0 C212 26.94, 212 53.88, 212 84 M212 0 C212 16.97, 212 33.95, 212 84 M212 84 C149.07 84, 86.15 84, 0 84 M212 84 C149.93 84, 87.86 84, 0 84 M0 84 C0 57.79, 0 31.57, 0 0 M0 84 C0 51.69, 0 19.37, 0 0" stroke="#000000" stroke-width="1" fill="none"></path></g><g transform="translate(15 330.5666742324829) rotate(0 101 12)"><text x="101" y="19" font-family="Cascadia, Segoe UI Emoji" font-size="20px" fill="#000000" text-anchor="middle" style="white-space: pre;" direction="ltr">Initialisation</text></g><g stroke-linecap="round"><g transform="translate(235.40000152587896 342.27331916884407) rotate(0 277.99999237060536 -2.90662662581434)"><path d="M0 0 C92.67 -0.97, 463.33 -4.84, 556 -5.81 M0 0 C92.67 -0.97, 463.33 -4.84, 556 -5.81" stroke="#000000" stroke-width="1" fill="none"></path></g><g transform="translate(235.40000152587896 342.27331916884407) rotate(0 277.99999237060536 -2.90662662581434)"><path d="M527.92 4.74 C538.67 0.7, 549.43 -3.34, 556 -5.81 M527.92 4.74 C535.7 1.82, 543.47 -1.11, 556 -5.81" stroke="#000000" stroke-width="1" fill="none"></path></g><g transform="translate(235.40000152587896 342.27331916884407) rotate(0 277.99999237060536 -2.90662662581434)"><path d="M527.7 -15.78 C538.54 -11.96, 549.38 -8.14, 556 -5.81 M527.7 -15.78 C535.54 -13.02, 543.38 -10.26, 556 -5.81" stroke="#000000" stroke-width="1" fill="none"></path></g></g><g transform="translate(411.4999999999999 314.5666742324829) rotate(0 41.5 12)"><text x="0" y="19" font-family="Cascadia, Segoe UI Emoji" font-size="20px" fill="#000000" text-anchor="start" style="white-space: pre;" direction="ltr">Running</text></g><g stroke-linecap="round" transform="translate(801.7999267578125 288.96670627593994) rotate(0 106 41.99999237060547)"><path d="M0 0 C50.89 0, 101.77 0, 212 0 M0 0 C63.27 0, 126.53 0, 212 0 M212 0 C212 33.41, 212 66.82, 212 84 M212 0 C212 33.43, 212 66.87, 212 84 M212 84 C134.18 84, 56.37 84, 0 84 M212 84 C163.05 84, 114.1 84, 0 84 M0 84 C0 59.47, 0 34.94, 0 0 M0 84 C0 50.65, 0 17.29, 0 0" stroke="#000000" stroke-width="1" fill="none"></path></g><g transform="translate(806.7999267578125 318.9666986465454) rotate(0 101 12)"><text x="101" y="19" font-family="Cascadia, Segoe UI Emoji" font-size="20px" fill="#000000" text-anchor="middle" style="white-space: pre;" direction="ltr">Result</text></g><g stroke-linecap="round" transform="translate(365.4000244140625 10) rotate(0 106 41.99999237060547)"><path d="M0 0 C61.7 0, 123.41 0, 212 0 M0 0 C60.52 0, 121.05 0, 212 0 M212 0 C212 23.72, 212 47.44, 212 84 M212 0 C212 26.82, 212 53.64, 212 84 M212 84 C145.21 84, 78.43 84, 0 84 M212 84 C153.33 84, 94.66 84, 0 84 M0 84 C0 64.77, 0 45.55, 0 0 M0 84 C0 57.54, 0 31.08, 0 0" stroke="#000000" stroke-width="1" fill="none"></path></g><g transform="translate(370.4000244140625 39.99999237060547) rotate(0 101 12)"><text x="101" y="19" font-family="Cascadia, Segoe UI Emoji" font-size="20px" fill="#000000" text-anchor="middle" style="white-space: pre;" direction="ltr">Event 1</text></g><g stroke-linecap="round" transform="translate(300.79998779296875 156.9999542236328) rotate(0 106 41.99999237060547)"><path d="M0 0 C66.79 0, 133.57 0, 212 0 M0 0 C58.67 0, 117.34 0, 212 0 M212 0 C212 19.23, 212 38.45, 212 84 M212 0 C212 26.46, 212 52.92, 212 84 M212 84 C135.96 84, 59.92 84, 0 84 M212 84 C128.57 84, 45.14 84, 0 84 M0 84 C0 51.24, 0 18.48, 0 0 M0 84 C0 57.33, 0 30.66, 0 0" stroke="#000000" stroke-width="1" fill="none"></path></g><g transform="translate(305.79998779296875 186.99994659423828) rotate(0 101 12)"><text x="101" y="19" font-family="Cascadia, Segoe UI Emoji" font-size="20px" fill="#000000" text-anchor="middle" style="white-space: pre;" direction="ltr">Event 2</text></g><g stroke-linecap="round" transform="translate(479.199951171875 394.6000213623047) rotate(0 106 41.99999237060547)"><path d="M0 0 C53 0, 106 0, 212 0 M0 0 C69.26 0, 138.52 0, 212 0 M212 0 C212 23.6, 212 47.2, 212 84 M212 0 C212 17.76, 212 35.53, 212 84 M212 84 C138.47 84, 64.95 84, 0 84 M212 84 C157.91 84, 103.81 84, 0 84 M0 84 C0 65.34, 0 46.68, 0 0 M0 84 C0 53.81, 0 23.61, 0 0" stroke="#000000" stroke-width="1" fill="none"></path></g><g transform="translate(484.199951171875 424.60001373291016) rotate(0 101 12)"><text x="101" y="19" font-family="Cascadia, Segoe UI Emoji" font-size="20px" fill="#000000" text-anchor="middle" style="white-space: pre;" direction="ltr">Event 3</text></g><g stroke-linecap="round" transform="translate(244 477.80003356933594) rotate(0 106 41.99999237060547)"><path d="M0 0 C59.63 0, 119.26 0, 212 0 M0 0 C81.05 0, 162.1 0, 212 0 M212 0 C212 26.99, 212 53.98, 212 84 M212 0 C212 26.58, 212 53.17, 212 84 M212 84 C149.94 84, 87.88 84, 0 84 M212 84 C155.7 84, 99.41 84, 0 84 M0 84 C0 56.1, 0 28.21, 0 0 M0 84 C0 65.39, 0 46.79, 0 0" stroke="#000000" stroke-width="1" fill="none"></path></g><g transform="translate(249 507.8000259399414) rotate(0 101 12)"><text x="101" y="19" font-family="Cascadia, Segoe UI Emoji" font-size="20px" fill="#000000" text-anchor="middle" style="white-space: pre;" direction="ltr">Event 4</text></g><g stroke-linecap="round"><g transform="translate(558.7999877929688 109.00000762939453) rotate(0 25.27161174011229 -9.200004577636719)"><path d="M0 0 C3.2 2.4, 12.13 13.87, 19.2 14.4 C26.27 14.93, 37.2 8.8, 42.4 3.2 C47.6 -2.4, 51.33 -13.47, 50.4 -19.2 C49.47 -24.93, 41.07 -28.93, 36.8 -31.2 C32.53 -33.47, 26.8 -32.53, 24.8 -32.8 M0 0 C3.2 2.4, 12.13 13.87, 19.2 14.4 C26.27 14.93, 37.2 8.8, 42.4 3.2 C47.6 -2.4, 51.33 -13.47, 50.4 -19.2 C49.47 -24.93, 41.07 -28.93, 36.8 -31.2 C32.53 -33.47, 26.8 -32.53, 24.8 -32.8" stroke="#000000" stroke-width="1" fill="none"></path></g><g transform="translate(558.7999877929688 109.00000762939453) rotate(0 25.27161174011229 -9.200004577636719)"><path d="M30.51 -34.8 C28.31 -34.03, 26.11 -33.26, 24.8 -32.8 M30.51 -34.8 C29.33 -34.38, 28.15 -33.97, 24.8 -32.8" stroke="#000000" stroke-width="1" fill="none"></path></g><g transform="translate(558.7999877929688 109.00000762939453) rotate(0 25.27161174011229 -9.200004577636719)"><path d="M30.46 -30.66 C28.28 -31.48, 26.1 -32.31, 24.8 -32.8 M30.46 -30.66 C29.29 -31.1, 28.12 -31.54, 24.8 -32.8" stroke="#000000" stroke-width="1" fill="none"></path></g></g><g stroke-linecap="round"><g transform="translate(490.79998779296875 253.79999542236328) rotate(0 28.44322424316408 -3.3663829345703107)"><path d="M0 0 C2.53 2.8, 7.6 14.4, 15.2 16.8 C22.8 19.2, 38.67 18.13, 45.6 14.4 C52.53 10.67, 56.13 0.27, 56.8 -5.6 C57.47 -11.47, 54.27 -17.6, 49.6 -20.8 C44.93 -24, 32.27 -24.13, 28.8 -24.8 M0 0 C2.53 2.8, 7.6 14.4, 15.2 16.8 C22.8 19.2, 38.67 18.13, 45.6 14.4 C52.53 10.67, 56.13 0.27, 56.8 -5.6 C57.47 -11.47, 54.27 -17.6, 49.6 -20.8 C44.93 -24, 32.27 -24.13, 28.8 -24.8" stroke="#000000" stroke-width="1" fill="none"></path></g><g transform="translate(490.79998779296875 253.79999542236328) rotate(0 28.44322424316408 -3.3663829345703107)"><path d="M39.08 -27.34 C35.45 -26.44, 31.83 -25.55, 28.8 -24.8 M39.08 -27.34 C35.06 -26.34, 31.03 -25.35, 28.8 -24.8" stroke="#000000" stroke-width="1" fill="none"></path></g><g transform="translate(490.79998779296875 253.79999542236328) rotate(0 28.44322424316408 -3.3663829345703107)"><path d="M38.31 -20.13 C34.95 -21.78, 31.6 -23.43, 28.8 -24.8 M38.31 -20.13 C34.59 -21.96, 30.86 -23.79, 28.8 -24.8" stroke="#000000" stroke-width="1" fill="none"></path></g></g><g stroke-linecap="round"><g transform="translate(666 494.60001373291016) rotate(0 26.393612304687508 -8.915210937500007)"><path d="M0 0 C2.27 2.93, 8.27 15.6, 13.6 17.6 C18.93 19.6, 25.73 16, 32 12 C38.27 8, 48.27 0.93, 51.2 -6.4 C54.13 -13.73, 52.67 -27.07, 49.6 -32 C46.53 -36.93, 35.6 -35.33, 32.8 -36 M0 0 C2.27 2.93, 8.27 15.6, 13.6 17.6 C18.93 19.6, 25.73 16, 32 12 C38.27 8, 48.27 0.93, 51.2 -6.4 C54.13 -13.73, 52.67 -27.07, 49.6 -32 C46.53 -36.93, 35.6 -35.33, 32.8 -36" stroke="#000000" stroke-width="1" fill="none"></path></g><g transform="translate(666 494.60001373291016) rotate(0 26.393612304687508 -8.915210937500007)"><path d="M41.06 -38.52 C38.39 -37.71, 35.72 -36.89, 32.8 -36 M41.06 -38.52 C38.45 -37.73, 35.85 -36.93, 32.8 -36" stroke="#000000" stroke-width="1" fill="none"></path></g><g transform="translate(666 494.60001373291016) rotate(0 26.393612304687508 -8.915210937500007)"><path d="M40.75 -32.62 C38.18 -33.72, 35.61 -34.81, 32.8 -36 M40.75 -32.62 C38.24 -33.69, 35.73 -34.75, 32.8 -36" stroke="#000000" stroke-width="1" fill="none"></path></g></g><g stroke-linecap="round"><g transform="translate(424.4000244140625 577.8000259399414) rotate(0 33.67780493164065 -7.340609863281259)"><path d="M0 0 C3.33 2.67, 12.8 14.13, 20 16 C27.2 17.87, 35.33 16.13, 43.2 11.2 C51.07 6.27, 65.47 -6.8, 67.2 -13.6 C68.93 -20.4, 57.87 -26.67, 53.6 -29.6 C49.33 -32.53, 43.6 -30.93, 41.6 -31.2 M0 0 C3.33 2.67, 12.8 14.13, 20 16 C27.2 17.87, 35.33 16.13, 43.2 11.2 C51.07 6.27, 65.47 -6.8, 67.2 -13.6 C68.93 -20.4, 57.87 -26.67, 53.6 -29.6 C49.33 -32.53, 43.6 -30.93, 41.6 -31.2" stroke="#000000" stroke-width="1" fill="none"></path></g><g transform="translate(424.4000244140625 577.8000259399414) rotate(0 33.67780493164065 -7.340609863281259)"><path d="M47.21 -33.46 C45.85 -32.91, 44.49 -32.37, 41.6 -31.2 M47.21 -33.46 C45.23 -32.66, 43.25 -31.86, 41.6 -31.2" stroke="#000000" stroke-width="1" fill="none"></path></g><g transform="translate(424.4000244140625 577.8000259399414) rotate(0 33.67780493164065 -7.340609863281259)"><path d="M47.36 -29.33 C45.96 -29.78, 44.56 -30.23, 41.6 -31.2 M47.36 -29.33 C45.32 -29.99, 43.29 -30.65, 41.6 -31.2" stroke="#000000" stroke-width="1" fill="none"></path></g></g><g stroke-linecap="round"><g transform="translate(249.20001220703125 342.60001373291016) rotate(0 49.09120849609374 -148.30000400543213)"><path d="M0 0 C0.4 -44.27, -14.93 -216.53, 2.4 -265.6 C19.73 -314.67, 87.07 -289.6, 104 -294.4 M0 0 C0.4 -44.27, -14.93 -216.53, 2.4 -265.6 C19.73 -314.67, 87.07 -289.6, 104 -294.4" stroke="#000000" stroke-width="1" fill="none"></path></g><g transform="translate(249.20001220703125 342.60001373291016) rotate(0 49.09120849609374 -148.30000400543213)"><path d="M75.46 -285.15 C85.28 -288.34, 95.1 -291.52, 104 -294.4 M75.46 -285.15 C81.18 -287.01, 86.9 -288.86, 104 -294.4" stroke="#000000" stroke-width="1" fill="none"></path></g><g transform="translate(249.20001220703125 342.60001373291016) rotate(0 49.09120849609374 -148.30000400543213)"><path d="M76.19 -305.66 C85.76 -301.79, 95.33 -297.91, 104 -294.4 M76.19 -305.66 C81.77 -303.41, 87.34 -301.15, 104 -294.4" stroke="#000000" stroke-width="1" fill="none"></path></g></g><g stroke-linecap="round"><g transform="translate(270.1295737995198 341.7999954223633) rotate(0 9.220805350870819 -75.96479248046876)"><path d="M-2.04 0 C-2.77 -23.2, -11.12 -114.8, -6.4 -139.2 C-1.68 -163.6, 20.83 -145.2, 26.27 -146.4 M-2.04 0 C-2.77 -23.2, -11.12 -114.8, -6.4 -139.2 C-1.68 -163.6, 20.83 -145.2, 26.27 -146.4" stroke="#000000" stroke-width="1" fill="none"></path></g><g transform="translate(270.1295737995198 341.7999954223633) rotate(0 9.220805350870819 -75.96479248046876)"><path d="M9.58 -145.36 C14.72 -145.68, 19.86 -146, 26.27 -146.4 M9.58 -145.36 C13.05 -145.58, 16.52 -145.79, 26.27 -146.4" stroke="#000000" stroke-width="1" fill="none"></path></g><g transform="translate(270.1295737995198 341.7999954223633) rotate(0 9.220805350870819 -75.96479248046876)"><path d="M12.81 -156.33 C16.96 -153.28, 21.1 -150.22, 26.27 -146.4 M12.81 -156.33 C15.61 -154.27, 18.41 -152.2, 26.27 -146.4" stroke="#000000" stroke-width="1" fill="none"></path></g></g><g stroke-linecap="round"><g transform="translate(239.60000610351562 342.60001373291016) rotate(0 -6.4000091552734375 100.75200195312499)"><path d="M0 0 C-2.27 30.53, -13.73 150.4, -13.6 183.2 C-13.47 216, -1.6 194.53, 0.8 196.8 M0 0 C-2.27 30.53, -13.73 150.4, -13.6 183.2 C-13.47 216, -1.6 194.53, 0.8 196.8" stroke="#000000" stroke-width="1" fill="none"></path></g><g transform="translate(239.60000610351562 342.60001373291016) rotate(0 -6.4000091552734375 100.75200195312499)"><path d="M-5.75 204.23 C-4.36 202.66, -2.97 201.08, 0.8 196.8 M-5.75 204.23 C-3.64 201.85, -1.54 199.46, 0.8 196.8" stroke="#000000" stroke-width="1" fill="none"></path></g><g transform="translate(239.60000610351562 342.60001373291016) rotate(0 -6.4000091552734375 100.75200195312499)"><path d="M-8.99 198.29 C-6.92 197.97, -4.84 197.66, 0.8 196.8 M-8.99 198.29 C-5.85 197.81, -2.71 197.33, 0.8 196.8" stroke="#000000" stroke-width="1" fill="none"></path></g></g><g stroke-linecap="round"><g transform="translate(386.79998779296875 342.60001373291016) rotate(0 37.769611328124995 50.51520458984376)"><path d="M0 0 C0.67 15.33, -9.07 75.6, 4 92 C17.07 108.4, 66 97.33, 78.4 98.4 M0 0 C0.67 15.33, -9.07 75.6, 4 92 C17.07 108.4, 66 97.33, 78.4 98.4" stroke="#000000" stroke-width="1" fill="none"></path></g><g transform="translate(386.79998779296875 342.60001373291016) rotate(0 37.769611328124995 50.51520458984376)"><path d="M50.94 110.48 C61.29 105.92, 71.65 101.37, 78.4 98.4 M50.94 110.48 C60.38 106.32, 69.83 102.17, 78.4 98.4" stroke="#000000" stroke-width="1" fill="none"></path></g><g transform="translate(386.79998779296875 342.60001373291016) rotate(0 37.769611328124995 50.51520458984376)"><path d="M49.6 90 C60.46 93.17, 71.32 96.33, 78.4 98.4 M49.6 90 C59.51 92.89, 69.41 95.78, 78.4 98.4" stroke="#000000" stroke-width="1" fill="none"></path></g></g></svg>
-					---
-					### Discrete Events
-					```
-					Increase each item's age every day
-					```
-					```
-					Weekly stock clearout
-					```
-					```
-					Random number of Sales per day
-					```
-					```
-					New Purchase Orders
-					```
-					```
-					Monitor
-					```
-					---
-					## Live code time!
+				</script>
+			</section>
+			<section>
+				<h3>Discrete Event Simulation</h3>
+				<svg version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1094.9999084472656 605.5221204669506"
+					width="1094.9999084472656" height="605.5221204669506">
+					<!-- svg-source:excalidraw -->
+					<defs>
+						<style>
+							@font-face {
+								font-family: "Virgil";
+								src: url("https://excalidraw.com/Virgil.woff2");
+							}
+
+							@font-face {
+								font-family: "Cascadia";
+								src: url("https://excalidraw.com/Cascadia.woff2");
+							}
+						</style>
+					</defs>
+					<g stroke-linecap="round"
+						transform="translate(436.6000061035156 10) rotate(0 106 41.99999237060547)">
+						<path
+							d="M0.61 -1.06 C54.78 -2.48, 109.49 -1.37, 211.85 -0.36 M-0.35 -0.78 C46.71 0.12, 95.43 0.97, 211.96 0.05 M211.08 1.65 C213.09 18.79, 212.48 41.61, 211.63 84.45 M212.81 -0.65 C212.71 32.47, 212.45 66.22, 211.69 83.57 M212.93 84.94 C141.63 85.7, 74.22 82.88, 1.02 85.74 M211.34 83.56 C145.52 82.34, 78.98 81.85, 0.57 83.91 M0.29 84.59 C0.27 53.79, 0.16 27.5, -1.73 0.26 M0.91 84.69 C-1.14 60.1, 0.23 36.85, 0.42 -0.56"
+							stroke="#000000" stroke-width="1" fill="none"></path>
+					</g>
+					<g transform="translate(441.6000061035156 39.99999237060547) rotate(0 101 12)"><text x="101" y="19"
+							font-family="Cascadia, Segoe UI Emoji" font-size="20px" fill="#000000" text-anchor="middle"
+							style="white-space: pre;" direction="ltr">Event 1</text></g>
+					<g stroke-linecap="round"
+						transform="translate(371.9999694824219 156.9999542236328) rotate(0 106 41.99999237060547)">
+						<path
+							d="M0.55 -1 C81.43 1.23, 160.64 0.76, 210.65 -0.53 M-0.57 -0.03 C62.77 2.47, 123.79 1.7, 211.49 0.21 M212.88 -1.53 C211.89 20.69, 211.25 39.9, 213.86 84.14 M212.65 -0.54 C213.08 29.52, 212.38 58.24, 212.25 84.6 M210.44 85.63 C147.48 83.81, 84.29 86.74, 0.25 83.23 M212.08 83.74 C164.43 82.32, 117.2 82.99, 0.36 84.07 M0.34 82.41 C0.11 52.44, -1.86 19.66, -0.33 1.21 M-0.63 83.89 C-0.03 62.92, -0.35 40.41, -0.31 0.18"
+							stroke="#000000" stroke-width="1" fill="none"></path>
+					</g>
+					<g transform="translate(376.9999694824219 186.99994659423828) rotate(0 101 12)"><text x="101" y="19"
+							font-family="Cascadia, Segoe UI Emoji" font-size="20px" fill="#000000" text-anchor="middle"
+							style="white-space: pre;" direction="ltr">Event 2</text></g>
+					<g stroke-linecap="round"
+						transform="translate(550.3999328613281 394.6000213623047) rotate(0 106 41.99999237060547)">
+						<path
+							d="M1.03 0.11 C50.71 0.7, 100.37 0.53, 211.86 -0.7 M0.86 0.82 C44.81 0.11, 89.18 0.27, 211.43 -0.4 M212.28 0.97 C212 32.58, 214.23 64.4, 212.98 85.63 M212.4 0.19 C212.24 19.29, 212.79 40.05, 212.04 84.53 M211.84 82.81 C138.09 87.47, 62.37 84.95, -1.32 82.69 M212.11 83.25 C159.5 83.36, 106.22 83.52, 0.74 84.13 M0.23 84.74 C-1.87 56.59, -0.48 29.88, -0.88 1.82 M0.74 84.43 C0.95 52.44, 0.21 22.19, -0.1 -0.65"
+							stroke="#000000" stroke-width="1" fill="none"></path>
+					</g>
+					<g transform="translate(555.3999328613281 424.60001373291016) rotate(0 101 12)"><text x="101" y="19"
+							font-family="Cascadia, Segoe UI Emoji" font-size="20px" fill="#000000" text-anchor="middle"
+							style="white-space: pre;" direction="ltr">Event 3</text></g>
+					<g stroke-linecap="round"
+						transform="translate(315.1999816894531 477.80003356933594) rotate(0 106 41.99999237060547)">
+						<path
+							d="M-0.15 -0.36 C50.2 -0.65, 102.96 -0.81, 210.44 -1.14 M-0.04 0.05 C62.4 -1.53, 125.26 -2.15, 212.73 0.39 M211.63 0.45 C213.98 18.9, 213.1 39.16, 210.7 85.31 M211.69 -0.43 C212.58 21.27, 212.37 41.86, 212.53 83.11 M213.02 85.74 C129.02 81.96, 44.23 81.42, -0.87 84.16 M212.57 83.91 C155.01 82.48, 98.05 82.54, 0.26 84.15 M-1.73 84.26 C-0.43 66.69, -0.97 48.78, 1.38 -1.26 M0.42 83.44 C-0.93 59.86, -0.72 34.72, -0.28 -0.62"
+							stroke="#000000" stroke-width="1" fill="none"></path>
+					</g>
+					<g transform="translate(320.1999816894531 507.8000259399414) rotate(0 101 12)"><text x="101" y="19"
+							font-family="Cascadia, Segoe UI Emoji" font-size="20px" fill="#000000" text-anchor="middle"
+							style="white-space: pre;" direction="ltr">Event 4</text></g>
+					<g stroke-linecap="round"
+						transform="translate(83.59994506835938 299.7667245864868) rotate(0 106 41.99999237060547)">
+						<path
+							d="M-1.68 0.48 C66.48 -0.32, 135.47 -0.29, 213.47 1.39 M-0.5 0.51 C70.98 -0.66, 141.67 -1.26, 211.73 -0.07 M211.94 1.96 C213.12 21.8, 211.37 42.6, 212.48 82.7 M211.23 0.14 C213.18 21.15, 212.92 43.6, 212.07 84.49 M211.05 84.7 C131.47 84.67, 49.51 85.65, 1.06 84.06 M212.81 83.92 C136.55 82.85, 63.17 82.46, -0.39 83.34 M-0.59 84.25 C-1.29 66.36, 0.22 46.96, 0.16 1.69 M-0.79 84.11 C0.12 56.7, -0.12 30.96, 0.61 -0.44"
+							stroke="#000000" stroke-width="1" fill="none"></path>
+					</g>
+					<g transform="translate(88.59994506835938 329.7667169570923) rotate(0 101 12)"><text x="101" y="19"
+							font-family="Cascadia, Segoe UI Emoji" font-size="20px" fill="#000000" text-anchor="middle"
+							style="white-space: pre;" direction="ltr">Initialisation</text></g>
+					<g stroke-linecap="round"
+						transform="translate(300.0411399038883 343.3767383420964) rotate(0 280.52556685414146 -3.1883796459188147)">
+						<path
+							d="M0.33 -0.53 C94.05 -1.41, 468.39 -5.48, 562.01 -6.39 M-0.96 1.8 C92.58 0.68, 467.12 -6.57, 560.77 -8.18"
+							stroke="#000000" stroke-width="1" fill="none"></path>
+						<path
+							d="M531.89 1.68 C541.62 -1.32, 549.88 -1.8, 561.46 -9.38 M532.84 2.51 C541.9 -1.91, 551.08 -4.79, 560.38 -9.06"
+							stroke="#000000" stroke-width="1" fill="none"></path>
+						<path
+							d="M531.51 -18.84 C541.15 -16.21, 549.52 -11.08, 561.46 -9.38 M532.46 -18.01 C541.54 -15.63, 550.84 -11.71, 560.38 -9.06"
+							stroke="#000000" stroke-width="1" fill="none"></path>
+					</g>
+					<g transform="translate(482.699981689453 314.5666742324829) rotate(0 41.5 12)"><text x="0" y="19"
+							font-family="Cascadia, Segoe UI Emoji" font-size="20px" fill="#000000" text-anchor="start"
+							style="white-space: pre;" direction="ltr">Running</text></g>
+					<g stroke-linecap="round"
+						transform="translate(872.9999084472656 288.96670627593994) rotate(0 106 41.99999237060547)">
+						<path
+							d="M1.47 1.39 C54.51 -0.23, 108.36 -0.18, 213.03 0.11 M-0.27 -0.07 C61.45 0.66, 123.02 1.41, 212.86 0.82 M212.48 -1.3 C211.13 26.51, 212.93 48.19, 212.28 84.97 M212.07 0.49 C213 23.01, 212.84 46.78, 212.4 84.19 M213.06 84.06 C155.87 85.4, 96.3 86.09, -0.16 82.81 M211.61 83.34 C135.41 83.82, 60.21 84, 0.11 83.25 M0.16 85.69 C0.38 53.97, 0.42 21.18, 0.23 0.74 M0.61 83.56 C0.8 66.77, -0.74 48.05, 0.74 0.43"
+							stroke="#000000" stroke-width="1" fill="none"></path>
+					</g>
+					<g transform="translate(877.9999084472656 318.9666986465454) rotate(0 101 12)"><text x="101" y="19"
+							font-family="Cascadia, Segoe UI Emoji" font-size="20px" fill="#000000" text-anchor="middle"
+							style="white-space: pre;" direction="ltr">Result</text></g>
+					<g stroke-linecap="round"
+						transform="translate(320.3999938964844 342.60001373291016) rotate(0 48.525091738216275 -147.6584250997752)">
+						<path
+							d="M1.17 1.12 C1.7 -43.13, -14.67 -216.33, 2.35 -265.53 C19.37 -314.74, 86.49 -289.21, 103.3 -294.11 M0.33 0.66 C0.76 -43.37, -15.6 -215.08, 1.38 -263.96 C18.35 -312.85, 85.23 -287.62, 102.17 -292.65"
+							stroke="#000000" stroke-width="1" fill="none"></path>
+						<path
+							d="M75.54 -283.36 C80.48 -286.92, 87.55 -289.27, 101.25 -291 M74.15 -283.47 C83.78 -285.62, 93.43 -289.28, 102.99 -293.3"
+							stroke="#000000" stroke-width="1" fill="none"></path>
+						<path
+							d="M76.19 -303.88 C80.97 -302.61, 87.89 -300.13, 101.25 -291 M74.8 -303.98 C84.05 -299.07, 93.48 -295.67, 102.99 -293.3"
+							stroke="#000000" stroke-width="1" fill="none"></path>
+					</g>
+					<g stroke-linecap="round"
+						transform="translate(339.2856113378524 341.7999954223633) rotate(0 11.809430518439456 -76.34177808348002)">
+						<path
+							d="M-0.05 0.07 C-1.09 -23.27, -9.65 -114.41, -5.05 -138.91 C-0.46 -163.42, 21.81 -145.79, 27.53 -146.95 M-1.53 -0.95 C-2.28 -24.15, -7.97 -116.72, -2.71 -140.89 C2.55 -165.05, 24.55 -144.71, 30.02 -145.92"
+							stroke="#000000" stroke-width="1" fill="none"></path>
+						<path
+							d="M13.38 -146.65 C20.34 -146.86, 25.82 -144.49, 30.76 -147.21 M13.48 -144.9 C18.6 -145.31, 24.47 -146.35, 30.56 -146.38"
+							stroke="#000000" stroke-width="1" fill="none"></path>
+						<path
+							d="M17.13 -157.46 C22.7 -153.37, 26.69 -146.7, 30.76 -147.21 M17.23 -155.71 C21.22 -152.73, 25.92 -150.38, 30.56 -146.38"
+							stroke="#000000" stroke-width="1" fill="none"></path>
+					</g>
+					<g stroke-linecap="round"
+						transform="translate(457.9999694824219 342.60001373291016) rotate(0 38.730302948132135 50.48447660751643)">
+						<path
+							d="M-0.78 -0.55 C0.17 14.82, -8.05 76.01, 4.99 92.53 C18.03 109.05, 65.15 97.63, 77.48 98.57 M1.01 1.77 C1.95 16.76, -8.59 74.32, 4.56 90.69 C17.71 107.05, 67.4 98.56, 79.89 99.97"
+							stroke="#000000" stroke-width="1" fill="none"></path>
+						<path
+							d="M51.04 112.56 C59.57 106.91, 65.73 106.76, 79.53 100.42 M52.77 110.26 C63.58 105.93, 74.3 102.36, 79.58 99.54"
+							stroke="#000000" stroke-width="1" fill="none"></path>
+						<path
+							d="M50.54 92.04 C59.25 91.36, 65.52 96.18, 79.53 100.42 M52.28 89.74 C63.3 93.48, 74.21 97.97, 79.58 99.54"
+							stroke="#000000" stroke-width="1" fill="none"></path>
+					</g>
+					<g stroke-linecap="round"
+						transform="translate(309.15414005948367 394.99364181107757) rotate(0 -4.649974864927543 72.5662310357609)">
+						<path
+							d="M-0.7 0.29 C-2.81 21.98, -13.42 106.15, -12.74 130.25 C-12.05 154.36, 1.06 142.55, 3.44 144.94 M1.14 -0.61 C-0.59 21.24, -10.78 107.59, -10.43 131.5 C-10.09 155.42, 1.24 140.5, 3.19 142.87"
+							stroke="#000000" stroke-width="1" fill="none"></path>
+						<path
+							d="M-4.67 147.93 C-2.97 147.76, 0.32 144.49, 3.33 143.35 M-4.87 148.82 C-2.23 146.57, -0.03 145.02, 3.39 142.97"
+							stroke="#000000" stroke-width="1" fill="none"></path>
+						<path
+							d="M-6.44 141.4 C-4.21 143.16, -0.4 141.83, 3.33 143.35 M-6.64 142.29 C-3.49 141.86, -0.79 142.15, 3.39 142.97"
+							stroke="#000000" stroke-width="1" fill="none"></path>
+					</g>
+					<g stroke-linecap="round"
+						transform="translate(629.2000427246094 109.00000762939453) rotate(0 24.7286135009021 -9.194918198668361)">
+						<path
+							d="M-0.25 -0.92 C2.88 1.48, 11.81 13.79, 18.84 14.3 C25.86 14.81, 36.79 7.73, 41.93 2.14 C47.06 -3.45, 50.28 -13.87, 49.62 -19.24 C48.96 -24.61, 42.12 -27.83, 37.97 -30.08 C33.83 -32.33, 27.06 -32.33, 24.75 -32.73 M1.82 1.21 C4.76 3.81, 11.18 15.51, 17.7 15.79 C24.21 16.07, 35.62 8.56, 40.91 2.9 C46.2 -2.76, 50.09 -12.21, 49.46 -18.16 C48.83 -24.1, 41.01 -30.16, 37.12 -32.76 C33.23 -35.36, 28.26 -33.58, 26.14 -33.74"
+							stroke="#000000" stroke-width="1" fill="none"></path>
+						<path
+							d="M31.17 -36.45 C29.91 -35.74, 27.73 -35.12, 26.12 -33.15 M31.46 -36.19 C29.28 -35.41, 27.56 -34.14, 25.91 -33.7"
+							stroke="#000000" stroke-width="1" fill="none"></path>
+						<path
+							d="M31.51 -32.32 C30.14 -32.88, 27.87 -33.52, 26.12 -33.15 M31.8 -32.07 C29.48 -32.9, 27.63 -33.26, 25.91 -33.7"
+							stroke="#000000" stroke-width="1" fill="none"></path>
+					</g>
+					<g stroke-linecap="round"
+						transform="translate(561.9999694824219 253.79999542236328) rotate(0 28.849544927093405 -3.356938057169316)">
+						<path
+							d="M-0.36 -0.1 C2.13 2.68, 7.19 13.33, 14.73 15.74 C22.26 18.15, 37.61 17.73, 44.82 14.36 C52.03 10.99, 57.18 1.37, 57.97 -4.48 C58.76 -10.33, 54.53 -17.4, 49.55 -20.73 C44.57 -24.07, 31.69 -23.74, 28.1 -24.51 M1.65 -1.19 C3.96 1.78, 5.92 13.91, 13.53 16.72 C21.14 19.53, 40.36 19.52, 47.31 15.66 C54.25 11.8, 55.05 -0.45, 55.18 -6.45 C55.3 -12.44, 52.39 -17.15, 48.05 -20.31 C43.72 -23.47, 32.45 -24.9, 29.15 -25.4"
+							stroke="#000000" stroke-width="1" fill="none"></path>
+						<path
+							d="M39.45 -27.89 C35.68 -27.61, 33.68 -25.31, 30.14 -25.45 M39.19 -27.72 C36.79 -26.58, 32.77 -26.11, 29.41 -25.5"
+							stroke="#000000" stroke-width="1" fill="none"></path>
+						<path
+							d="M38.35 -20.73 C34.94 -22.45, 33.25 -22.15, 30.14 -25.45 M38.09 -20.56 C36.07 -21.61, 32.39 -23.33, 29.41 -25.5"
+							stroke="#000000" stroke-width="1" fill="none"></path>
+					</g>
+					<g stroke-linecap="round"
+						transform="translate(737.1999816894531 494.60001373291016) rotate(0 26.414310415610657 -8.580311443499909)">
+						<path
+							d="M-0.47 -1.06 C1.72 1.88, 7.21 15.2, 12.82 17.56 C18.43 19.92, 26.78 17.1, 33.17 13.12 C39.56 9.14, 48.53 1.14, 51.15 -6.33 C53.77 -13.81, 52.09 -26.68, 48.9 -31.71 C45.71 -36.75, 34.54 -35.93, 32.02 -36.55 M1.48 1 C4.09 4.15, 9.87 17.35, 15.12 19.08 C20.38 20.81, 26.98 15.41, 33.02 11.37 C39.07 7.32, 48.42 1.89, 51.37 -5.2 C54.32 -12.29, 53.79 -26.33, 50.73 -31.17 C47.67 -36.01, 36.26 -33.33, 33.02 -34.22"
+							stroke="#000000" stroke-width="1" fill="none"></path>
+						<path
+							d="M40.45 -37.49 C38.98 -35.39, 37.6 -35.54, 33.07 -34.72 M41.57 -36.74 C38.21 -36.03, 36.1 -35.29, 33.12 -33.82"
+							stroke="#000000" stroke-width="1" fill="none"></path>
+						<path
+							d="M40.28 -31.59 C38.85 -31.08, 37.53 -32.82, 33.07 -34.72 M41.4 -30.84 C38.13 -32.04, 36.08 -33.21, 33.12 -33.82"
+							stroke="#000000" stroke-width="1" fill="none"></path>
+					</g>
+					<g stroke-linecap="round"
+						transform="translate(495.6000061035156 577.8000259399414) rotate(0 32.94271712078631 -7.050995702572436)">
+						<path
+							d="M-0.78 -0.04 C2.83 2.99, 13.85 15.24, 21.17 17.12 C28.5 19, 35.6 16.34, 43.15 11.27 C50.71 6.19, 64.89 -6.41, 66.5 -13.31 C68.11 -20.22, 56.8 -27.26, 52.82 -30.15 C48.83 -33.04, 44.61 -30.52, 42.59 -30.67 M1.01 -1.1 C4.61 1.71, 13.95 13.3, 20.84 15.59 C27.73 17.87, 34.77 17.23, 42.36 12.62 C49.95 8.01, 64.34 -4.95, 66.38 -12.06 C68.42 -19.17, 58.85 -26.82, 54.6 -30.05 C50.34 -33.28, 43.16 -31.06, 40.86 -31.43"
+							stroke="#000000" stroke-width="1" fill="none"></path>
+						<path
+							d="M46.43 -33.17 C45.54 -33.22, 43.55 -32.94, 41.01 -31.83 M46.22 -33.72 C45.19 -33.2, 43.7 -32.27, 40.88 -31.28"
+							stroke="#000000" stroke-width="1" fill="none"></path>
+						<path
+							d="M46.62 -29.04 C45.72 -30.16, 43.68 -30.96, 41.01 -31.83 M46.41 -29.58 C45.3 -30.12, 43.76 -30.24, 40.88 -31.28"
+							stroke="#000000" stroke-width="1" fill="none"></path>
+					</g>
+
+					<g stroke-linecap="round"
+						transform="translate(436.3999938964844 10.400001525878906) rotate(0 107.5 42)">
+						<path d="M1.86 1.89 L214.74 1.18 L215.07 83.49 L0.34 82.45" stroke="none" stroke-width="0"
+							fill="#ced4da"></path>
+						<path
+							d="M-0.83 -1.68 C79.18 0.41, 156.53 1.54, 215.52 1.11 M0.19 0.31 C68.61 0.28, 136.83 0.73, 214.14 -0.7 M216.39 1.47 C213.27 25.83, 213.28 53.72, 215.47 85.76 M214.98 -0.51 C215.88 22.81, 215.25 44.67, 214.82 84.2 M215.54 83.4 C140.08 86.18, 60.89 84.61, 0 84.14 M214.8 83.58 C155.24 83.46, 94.79 83.88, 0.65 84.44 M-0.81 85.05 C0.92 57.98, 1.65 33.27, -0.93 1.29 M0.51 84.51 C-0.33 62.52, 0.27 38.42, 0.53 0.68"
+							stroke="#000000" stroke-width="1" fill="none"></path>
+					</g>
+					<g transform="translate(441.3999938964844 16.400001525878906) rotate(0 102.5 36)"><text x="102.5"
+							y="19" font-family="Cascadia, Segoe UI Emoji" font-size="20px" fill="#000000"
+							text-anchor="middle" style="white-space: pre;" direction="ltr">Increase each </text><text
+							x="102.5" y="43" font-family="Cascadia, Segoe UI Emoji" font-size="20px" fill="#000000"
+							text-anchor="middle" style="white-space: pre;" direction="ltr">item's age every </text><text
+							x="102.5" y="67" font-family="Cascadia, Segoe UI Emoji" font-size="20px" fill="#000000"
+							text-anchor="middle" style="white-space: pre;" direction="ltr">day</text></g>
+					<g stroke-linecap="round"
+						transform="translate(371.6000061035156 155.19998931884766) rotate(0 106.80001831054688 42.79998779296875)">
+						<path d="M-1.07 -1.97 L213.34 -1.5 L214.55 83.9 L0.96 85.64" stroke="none" stroke-width="0"
+							fill="#ced4da"></path>
+						<path
+							d="M-1.23 -0.32 C70.87 1.61, 141.48 2.29, 214.14 -0.6 M-0.59 0 C82.41 1.2, 164.94 1.35, 213.4 -0.42 M213.44 1.48 C214.14 31.11, 211.91 62.8, 212.79 86.65 M214.1 -0.47 C214.17 27.07, 214.09 55.26, 214.11 86.11 M212.08 86.52 C147.76 88.62, 81.19 86.75, 1.04 85.66 M213.04 86.24 C155.18 84.23, 95.87 83.69, 0.85 86.13 M-1.89 85.94 C0.3 62.68, -1.57 38.42, -1.95 0.89 M0.76 84.93 C0.37 65.56, -0.17 43.82, 0.45 0.98"
+							stroke="#000000" stroke-width="1" fill="none"></path>
+					</g>
+					<g transform="translate(404.9999694824219 175.69995880126953) rotate(0 70.5 24)"><text x="70.5"
+							y="19" font-family="Cascadia, Segoe UI Emoji" font-size="20px" fill="#000000"
+							text-anchor="middle" style="white-space: pre;" direction="ltr">Weekly stock</text><text
+							x="70.5" y="43" font-family="Cascadia, Segoe UI Emoji" font-size="20px" fill="#000000"
+							text-anchor="middle" style="white-space: pre;" direction="ltr">clearout</text></g>
+					<g stroke-linecap="round"
+						transform="translate(545.9999694824219 393.60001373291016) rotate(0 106 42)">
+						<path d="M-1.14 1.33 L211.61 -1.27 L210.52 83.85 L1.86 82.08" stroke="none" stroke-width="0"
+							fill="#ced4da"></path>
+						<path
+							d="M-1.32 0.83 C50.71 1.09, 104.45 1.6, 212.39 0.33 M0.23 -0.14 C51.46 1.31, 101.56 0.01, 212.24 -0.26 M213.26 1.3 C210.95 18.96, 212.94 41.06, 212.05 82.9 M211.73 -0.57 C211.78 26.76, 210.53 53.25, 212.45 84.7 M212.65 83.87 C134.5 83.19, 54.88 85.37, 1.2 85.33 M211.99 84.73 C161.97 82.17, 113.13 82.76, -0.66 83.62 M-0.38 84.25 C0.56 68.57, 0.59 48.76, -0.47 1.19 M0.31 84.26 C-0.1 63.11, 0.48 40.5, -0.22 0.6"
+							stroke="#000000" stroke-width="1" fill="none"></path>
+					</g>
+					<g transform="translate(621.1999816894531 421.50003814697266) rotate(0 30 12)"><text x="30" y="19"
+							font-family="Cascadia, Segoe UI Emoji" font-size="20px" fill="#000000" text-anchor="middle"
+							style="white-space: pre;" direction="ltr">Sales</text></g>
+					<g stroke-linecap="round"
+						transform="translate(314.0000305175781 475.9999771118164) rotate(0 106.39999389648438 44.800018310546875)">
+						<path d="M1.81 0.23 L213.41 -1.88 L211.13 88.35 L-1.89 89.52" stroke="none" stroke-width="0"
+							fill="#ced4da"></path>
+						<path
+							d="M1.07 -1.72 C59.43 1.32, 118.5 1.67, 214.55 -1.43 M0.58 -0.17 C58.61 0.42, 118.27 1.89, 211.96 0 M212.82 -1.66 C211.01 28.3, 211.81 53.46, 214.54 88.55 M213.47 -0.8 C213.74 23.4, 212.48 46.65, 212.91 89.12 M211.44 89.55 C135.83 87.84, 61.68 89.36, 1.43 90.64 M213.13 89.94 C164.2 88.2, 115.43 87.59, 0.62 90.33 M-0.55 89.58 C-0.99 59.03, -2.03 32.77, -1.8 0.28 M-0.47 89.12 C0.07 62.69, -0.01 34.87, -0.04 0.12"
+							stroke="#000000" stroke-width="1" fill="none"></path>
+					</g>
+					<g transform="translate(334.4999694824219 495.29996490478516) rotate(0 88.5 24)"><text x="88.5"
+							y="19" font-family="Cascadia, Segoe UI Emoji" font-size="20px" fill="#000000"
+							text-anchor="middle" style="white-space: pre;" direction="ltr">Handle</text><text x="88.5"
+							y="43" font-family="Cascadia, Segoe UI Emoji" font-size="20px" fill="#000000"
+							text-anchor="middle" style="white-space: pre;" direction="ltr">Purchase Orders</text></g>
+					<g stroke-linecap="round"
+						transform="translate(87.5999755859375 300.00003814697266) rotate(0 104.40000915527344 42.800018310546875)">
+						<path d="M0.33 -1.16 L209.09 -1.73 L208.69 84.24 L-1.01 86.93" stroke="none" stroke-width="0"
+							fill="#ced4da"></path>
+						<path
+							d="M-0.35 1.46 C52.6 -1.39, 106.94 -1.4, 209.34 -1.67 M-0.03 0.28 C44.75 1.09, 90.9 2.15, 207.92 -0.12 M210.18 -0.7 C208.38 31.99, 206.93 60.05, 210.63 86.56 M207.95 -0.93 C209.15 31.57, 209.24 63.83, 209.06 85.61 M207.37 86.55 C128.59 84.93, 46.72 86.02, 1.64 84.78 M209.05 85.2 C144.22 86.66, 78.36 84.9, -0.45 85.03 M1.6 87.23 C1.91 59.78, 0.27 35.96, -0.74 -0.72 M-0.75 84.82 C-1.58 53.12, -0.31 19.19, -0.18 -0.99"
+							stroke="#000000" stroke-width="1" fill="none"></path>
+					</g>
+					<g transform="translate(141.5999755859375 319.29996490478516) rotate(0 53 24)"><text x="53" y="19"
+							font-family="Cascadia, Segoe UI Emoji" font-size="20px" fill="#000000" text-anchor="middle"
+							style="white-space: pre;" direction="ltr">Inventory</text><text x="53" y="43"
+							font-family="Cascadia, Segoe UI Emoji" font-size="20px" fill="#000000" text-anchor="middle"
+							style="white-space: pre;" direction="ltr">Of Items</text></g>
+					<g stroke-linecap="round"
+						transform="translate(873.1999816894531 288.00000762939453) rotate(0 105.60003662109375 41.99998474121094)">
+						<path d="M-0.78 -0.83 L211.32 -1.8 L212.03 83.14 L-0.01 84.79" stroke="none" stroke-width="0"
+							fill="#ced4da"></path>
+						<path
+							d="M0.29 -0.14 C53.19 -1.28, 104.78 -2.22, 211.21 0.82 M0.19 0.08 C82.02 -0.1, 162.53 -0.85, 211.57 0.29 M212.92 -0.15 C211.69 17.12, 209.21 38.43, 211.83 85.7 M211.64 -0.13 C210.44 20.2, 210.52 41.21, 211.16 83 M212.2 85.56 C155.85 84.71, 99.94 82.61, -0.24 85.24 M210.69 83.43 C159.51 82.62, 107.01 83.88, 0.84 83.94 M1.41 85.16 C1.47 50.77, 0.86 18.58, 0.85 -0.33 M-0.59 84.76 C-1.23 64.01, -1.2 43.22, -0.98 0.88"
+							stroke="#000000" stroke-width="1" fill="none"></path>
+					</g>
+					<g transform="translate(911.5000305175781 308.49991607666016) rotate(0 70.5 24)"><text x="70.5"
+							y="19" font-family="Cascadia, Segoe UI Emoji" font-size="20px" fill="#000000"
+							text-anchor="middle" style="white-space: pre;" direction="ltr">Availability</text><text
+							x="70.5" y="43" font-family="Cascadia, Segoe UI Emoji" font-size="20px" fill="#000000"
+							text-anchor="middle" style="white-space: pre;" direction="ltr">per Day</text></g>
+					<g stroke-linecap="round"
+						transform="translate(10 192.79999542236328) rotate(0 95.60002136230469 24)">
+						<path d="M1.6 -0.07 L190.02 0.81 L192.91 47.44 L-0.61 47.26" stroke="none" stroke-width="0"
+							fill="#ced4da"></path>
+						<path
+							d="M-1.25 -1.76 C57.65 -0.71, 115.88 -1.07, 192.32 -1.17 M0.35 0.5 C72.93 -0.27, 145.85 -0.04, 190.56 0.75 M192.18 0.42 C190.59 15.61, 190.42 35.29, 192.54 47.86 M190.29 0.71 C190.96 16.07, 191.32 32.77, 191.32 48.81 M190.62 47.39 C144.58 46.58, 99.99 48.66, -0.11 48.96 M191.23 47.76 C123.25 48.93, 56.21 49.43, 0.52 47.67 M0.67 48.13 C-0.72 29.99, 1.37 14.47, -0.32 1.62 M-0.22 48.67 C-0.14 34.87, -0.47 20.08, 0.59 0.31"
+							stroke="#000000" stroke-width="1" fill="none"></path>
+					</g>
+					<g stroke-linecap="round"
+						transform="translate(98.80001831054688 248.00000762939453) rotate(0 24.548600495895386 23.388393566617722)">
+						<path
+							d="M0.97 -0.14 C8.61 7.66, 39.08 38.65, 46.83 46.61 M0.03 -1.27 C7.95 6.74, 41.31 40.21, 49.07 48.04"
+							stroke="#000000" stroke-width="1" fill="none"></path>
+						<path
+							d="M21.68 33.78 C31.94 39.51, 44.01 43.82, 50.46 46.38 M22.72 35.25 C28.79 39.08, 37.63 41.87, 48.77 47.67"
+							stroke="#000000" stroke-width="1" fill="none"></path>
+						<path
+							d="M36.23 19.31 C40.9 30.7, 47.41 40.53, 50.46 46.38 M37.27 20.78 C39.47 28.59, 44.35 35.32, 48.77 47.67"
+							stroke="#000000" stroke-width="1" fill="none"></path>
+					</g>
+					<g transform="translate(18.300018310546875 205.50000762939453) rotate(0 88.5 12)"><text x="88.5"
+							y="19" font-family="Cascadia, Segoe UI Emoji" font-size="20px" fill="#000000"
+							text-anchor="middle" style="white-space: pre;" direction="ltr">Purchase Orders</text></g>
+				</svg>
+			</section>
+			<section data-markdown data-auto-animate>
+				<script type="text/template">
 					---
 					## Questions?
 					---
 					### Finding Optimal Solution
 					axis per input of simulation
-
 					<img height=350px alt="3d axes" src="https://www.mathworks.com/matlabcentral/mlc-downloads/downloads/6b528772-236f-46a7-ba3c-74fd81f08c39/66f8fd85-ee0a-4cb4-aaba-84b409113a99/images/screenshot.png"/>
-
+					
 					_Parameter Space_
 					---
 					### Finding Optimal Solution
@@ -90,35 +347,67 @@
 					
 					_expensive - time and cost_
 					---
-					## Random Search
+					### Finding Optimal Solution
+					Random Search
 					<img alt="grid vs random search" src="https://www.researchgate.net/profile/Karl-Ezra-Pilario/publication/341691661/figure/fig2/AS:896464364507139@1590745168758/Comparison-between-a-grid-search-and-b-random-search-for-hyper-parameter-tuning-The.png"/>
 					
 					_not learning, just guessing_
 					---
+					### Finding Optimal Solution
+					Gradient Decent
+
+					<img height=300px alt="graph of local minima" src="https://vitalflux.com/wp-content/uploads/2020/09/local-minima-vs-global-minima-1.png"/>
+					
+					<i>just learning, no guessing<i>
+					---
 					### Reinforcement Learning
-					<img height=450px alt="Agent-Environment diagram" src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/1b/Reinforcement_learning_diagram.svg/1024px-Reinforcement_learning_diagram.svg.png"/>
+					<svg version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 854.5019241962026 463.19998931884766" width="854.5019241962026" height="463.19998931884766">
+						<!-- svg-source:excalidraw -->
+						<g stroke-linecap="round" transform="translate(269.3019730243276 10) rotate(0 134 46.80001449584961)"><path d="M1.33 -0.71 L267.38 1.25 L266.57 93.79 L-1.2 92.53" stroke="none" stroke-width="0" fill="#ffff"></path><path d="M0.6 0.07 C66.73 0.51, 130.75 0.46, 267.98 -1.51 M0.48 -0.72 C73.53 -1.19, 149.01 0.03, 267.9 0.43 M268.61 0.9 C268.63 29.58, 267.59 61.63, 269.78 93.96 M267.04 -0.15 C267.61 22.71, 267.83 46.7, 268.93 93.5 M269.06 95.12 C200.84 96.2, 136.55 96.55, -0.92 94.29 M268.29 93.37 C186.35 93.72, 103.81 93.53, -0.09 93.43 M0.21 92.59 C0.19 58.43, -1.68 23.36, 1 -0.45 M-0.66 92.95 C0.2 69.91, 0.34 45.57, -0.31 -0.97" stroke="#000000" stroke-width="1" fill="none"></path></g><g transform="translate(274.3019730243276 44.80001449584961) rotate(0 129 12)"><text x="129" y="19" font-family="Cascadia, Segoe UI Emoji" font-size="20px" fill="#000000" text-anchor="middle" style="white-space: pre;" direction="ltr">Environment</text></g><g stroke-linecap="round" transform="translate(110.1020218524526 349.19995880126953) rotate(0 146 52.00001525878906)"><path d="M1.96 -0.03 L293.96 0.56 L290.93 105.76 L0.19 103.81" stroke="none" stroke-width="0" fill="#fff"></path><path d="M-0.6 -0.99 C80.07 0.26, 163.14 0.47, 293.16 -0.46 M-0.23 0.47 C58.86 0.85, 118.35 0.38, 291.78 -0.25 M292.59 -0.16 C292.78 39.33, 290.99 78.81, 292.9 105.75 M291.38 0.6 C292.26 34.37, 291.14 69.33, 291.07 104.92 M292.5 103.92 C214.57 102.86, 140.54 104.1, 0.01 102.78 M292.03 104.46 C197.82 102.14, 102.26 102.94, -0.09 103.73 M-0.51 105.38 C-2.72 61.83, 0.01 22.54, 1.22 0.28 M0.07 104.37 C0.53 74.35, 1.19 43.12, 0.94 0.48" stroke="#000000" stroke-width="1" fill="none"></path></g><g transform="translate(115.1020218524526 389.1999740600586) rotate(0 141 12)"><text x="141" y="19" font-family="Cascadia, Segoe UI Emoji" font-size="20px" fill="#000000" text-anchor="middle" style="white-space: pre;" direction="ltr" data-id="Agent">Agent</text></g><g transform="translate(37.001924196202594 306.9000015258789) rotate(32.78787704488625 35.5 12)"><text x="35.5" y="19" font-family="Cascadia, Segoe UI Emoji" font-size="20px" fill="#000000" text-anchor="middle" style="white-space: pre;" direction="ltr" data-id="Action">Action</text></g><g stroke-linecap="round" transform="translate(94.1018997821401 388.3999710083008) rotate(0 38.732768058059605 -172.65465670864145)"><path d="M-0.53 -0.5 C-13.54 -14.4, -66.79 -40.3, -77.31 -83.11 C-87.83 -125.92, -83.08 -215.21, -63.64 -257.37 C-44.21 -299.54, 1.77 -322.19, 39.3 -336.11 C76.84 -350.02, 141.33 -340.07, 161.57 -340.87 M1.39 -1.81 C-11.89 -16.07, -67.52 -42.35, -78.53 -84.77 C-89.53 -127.19, -84.33 -214.1, -64.64 -256.36 C-44.95 -298.61, 2.15 -324.34, 39.6 -338.3 C77.05 -352.26, 139.73 -339.55, 160.08 -340.1" stroke="#000000" stroke-width="1" fill="none"></path><path d="M130.38 -332.74 C143.11 -335.46, 151.09 -337.52, 161.23 -340.15 M131.52 -332.88 C141.42 -334.99, 152.26 -337.2, 160.32 -340.57" stroke="#000000" stroke-width="1" fill="none"></path><path d="M131.86 -353.21 C144.09 -348.54, 151.55 -343.21, 161.23 -340.15 M132.99 -353.35 C142.22 -348.06, 152.53 -342.89, 160.32 -340.57" stroke="#000000" stroke-width="1" fill="none"></path></g><g stroke-linecap="round" transform="translate(554.9019486102651 55.59998321533203) rotate(0 76.9255915958434 80.34857317527755)"><path d="M-0.4 0.52 C13.82 1.53, 60.84 -9.48, 84.99 6.16 C109.13 21.79, 132.93 68.01, 144.47 94.32 C156.01 120.63, 152.45 152.24, 154.25 164.01 M1.59 -0.25 C16.24 0.39, 63.18 -11.65, 87.38 4.33 C111.58 20.3, 135.67 68.87, 146.77 95.6 C157.87 122.33, 152.82 153.06, 154 164.7" stroke="#000000" stroke-width="1" fill="none"></path><path d="M144.64 135.48 C147.52 142.36, 149.27 150.38, 152.68 164.81 M143.13 137.35 C147.98 145.82, 151.26 154.5, 153.25 165.59" stroke="#000000" stroke-width="1" fill="none"></path><path d="M165.16 135.5 C162.43 142.31, 158.56 150.32, 152.68 164.81 M163.65 137.38 C162.06 145.83, 158.9 154.5, 153.25 165.59" stroke="#000000" stroke-width="1" fill="none"></path></g><g stroke-linecap="round" transform="translate(588.5019241962026 226.79999542236328) rotate(0 128 56.000030517578125)"><path d="M-0.99 -0.77 L254.2 -1.55 L255.03 112.88 L-1.82 111.22" stroke="none" stroke-width="0" fill="#fff"></path><path d="M1.51 -0.17 C52.95 0.53, 108.75 2.07, 255 0.45 M-0.23 -0.58 C55.52 -1.56, 111.55 -2.1, 255.21 -0.15 M254.28 -1.32 C256.47 39.14, 255.57 80.62, 255.85 111.54 M256.78 -0.68 C256.01 37.52, 255.43 74.78, 256.69 111.01 M254.7 111.11 C168.05 111.99, 79.61 110.36, -1.22 111.33 M256.16 112.59 C182.08 112.8, 109.37 112.61, 0.41 111.77 M1.97 111.29 C0.45 67.51, -0.01 26.15, -0.99 0.48 M0.31 112.07 C0.06 77.43, -1.06 41.96, -0.77 -0.06" stroke="#000000" stroke-width="1" fill="none"></path></g><g transform="translate(593.5019241962026 270.8000259399414) rotate(0 123 12)"><text x="123" y="19" font-family="Cascadia, Segoe UI Emoji" font-size="20px" fill="#000000" text-anchor="middle" style="white-space: pre;" direction="ltr">Interpreter</text></g><g stroke-linecap="round" transform="translate(640.5019241962026 351.59998321533203) rotate(0 -107.18550328709188 39.58971856158078)"><path d="M-0.54 -0.83 C-5.14 7.32, -10.29 35.54, -27.29 48.95 C-44.29 62.37, -71.14 76.88, -102.55 79.66 C-133.95 82.45, -196.88 68.05, -215.74 65.66 M1.37 1.35 C-2.87 9.64, -8.13 37.45, -25.05 50.15 C-41.97 62.85, -68.43 74.79, -100.15 77.56 C-131.87 80.34, -195.87 68.79, -215.36 66.79" stroke="#000000" stroke-width="1" fill="none"></path><path d="M-187.43 58.93 C-196.53 60.75, -204.09 64.81, -215.27 67.23 M-186.96 60.67 C-194.63 62.37, -202.6 63.59, -215.82 67.77" stroke="#000000" stroke-width="1" fill="none"></path><path d="M-190.19 79.26 C-198.42 74.57, -205.09 72.1, -215.27 67.23 M-189.72 81.01 C-196.53 77.06, -203.74 72.63, -215.82 67.77" stroke="#000000" stroke-width="1" fill="none"></path></g><g transform="translate(517.0020462665151 390.10001373291016) rotate(342.08732693368796 35.5 12)"><text x="35.5" y="19" font-family="Cascadia, Segoe UI Emoji" font-size="20px" fill="#000000" text-anchor="middle" style="white-space: pre;" direction="ltr" data-id="Reward">Reward</text></g></svg>	
+					---
+					### Reinforcement Learning
+
+					<div class="r-hstack">
+					<img class="fragment" height=550px alt="Restaurant menu" src="https://previews.123rf.com/images/marchie/marchie1611/marchie161100055/65931451-men%C3%BA-italiano-mantel-folleto-restaurante-de-comida-dise%C3%B1o-de-la-plantilla-vintage-volante-de-pizza-c.jpg">
+					<div>
+						<p class="fragment r-frame">Agent</p>
+						<p class="fragment r-frame">Action</p>
+						<p class="fragment r-frame">&nbspReward&nbsp</p>
+					</div>
+					<div>
+					<p class="fragment r-frame">customer</p>
+					<p class="fragment r-frame">meal</p>
+					<p class="fragment r-frame">&nbspenjoyment&nbsp</p>
+					</div>
 				</div>
+
+					
 					---
-					<img alt="Restaurant menu" src="https://previews.123rf.com/images/marchie/marchie1611/marchie161100055/65931451-men%C3%BA-italiano-mantel-folleto-restaurante-de-comida-dise%C3%B1o-de-la-plantilla-vintage-volante-de-pizza-c.jpg">
-					---
-					## Epsilon Greedy
+					## Agent 
+					__Epsilon Greedy__
+
 					exploit vs explore
 					
 					<img alt="epsilon greedy probabliilty algorithm" src="https://media.geeksforgeeks.org/wp-content/uploads/20200318200401/Screenshot-2020-03-18-at-8.03.38-PM.png"/>
 					
-					<!-- [_Further Reading_](https://www.cs.cmu.edu/~ebrun/15889e/lectures/Lecture_slides_10_26.pdf) -->
-					---
-					#### Agents in Reinforcement Learning
-					<img height=450px alt="Agent-Environment diagram" src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/1b/Reinforcement_learning_diagram.svg/1024px-Reinforcement_learning_diagram.svg.png"/>
+					[_Further Reading_](https://www.cs.cmu.edu/~ebrun/15889e/lectures/Lecture_slides_10_26.pdf)
 					---
 					## Actions
-					Input-alterations navigating through Parameter Space 
-					<img alt="vector cloud to represent actions-space" src="https://dev.pyvista.org/_images/sphx_glr_create-point-cloud_003.png"/>
+					Input-alterations
+					
+					navigating through Parameter Space 
+
+					<img height=400px  alt="vector cloud to represent actions-space" src="https://dev.pyvista.org/_images/sphx_glr_create-point-cloud_003.png"/>
 					---
 					## Reward
-					_Domain-Specific_
+
+					Guides the agent
+
+					needs balance for convergence
+
 					- Mean Square Difference from target
-					- Cost of purchases minus penalty for out-of-stock
+					- Cost of purchases
+						- minus penalty for out-of-stock
 					---
 					### Code
 					---
@@ -129,7 +418,6 @@
 			</section>
 		</div>
 	</div>
-
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.2.1/reveal.min.js"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.2.1/plugin/markdown/markdown.min.js"></script>
 	<script>
