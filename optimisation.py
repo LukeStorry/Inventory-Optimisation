@@ -57,7 +57,7 @@ class Agent:
 def calculate_reward(simulation: Simulation) -> int:
     """Calculates the reward to give to the agent after a simulation"""
     number_of_purchases = sum(po.amount for po in simulation.purchase_orders)
-    empty_penalty = sum(-4 for value in simulation.availabilities if value == 0)
+    empty_penalty = sum(-5 for value in simulation.availabilities if value == 0)
     return 1000 + empty_penalty - number_of_purchases
 
 
