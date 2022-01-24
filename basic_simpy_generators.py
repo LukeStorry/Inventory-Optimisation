@@ -1,23 +1,17 @@
 import simpy
 
 
-def create_generator(env):
-    string = ''
+def create_generator(environment, whys):
     while True:
-        string += 'X'
-        print(string)
-        yield env.timeout(1)
+        whys += 'Y'
+        print(environment.now)
+        yield environment.timeout(1)
 
-
-# gen = create_generator()
-# print(next(gen))
-# print(next(gen))
-# print(next(gen))
-# print(next(gen))
-# print(next(gen))
-# print(next(gen))
-# print(next(gen))
 
 environment = simpy.Environment()
-environment.process(create_generator(environment))
-environment.run(5)
+whys = []
+environment.process(create_generator(environment, whys))
+environment.run(until=5)
+print(whys)
+environment.run(until=10)
+print(whys)
